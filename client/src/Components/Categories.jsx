@@ -1,5 +1,5 @@
 import { useEffect} from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getClubs } from '../redux/clubSlice';
 import { Rings } from 'react-loader-spinner';
@@ -7,6 +7,7 @@ import { Button} from "@material-tailwind/react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 function Categories() {
    const dispatch = useDispatch();
    const navigate=useNavigate();
@@ -76,8 +77,8 @@ function Categories() {
     // <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay:0.1  }}>
       <div id='#category' className='bg-[#fff3e0] pb-20 pt-5 '>
           <div className='mb-10 mt-8 flex flex-col gap-2 items-center'>
-              <h1 className='font-bold text-4xl'>Club Events</h1>
-              <h3>Choose Event</h3>
+              <h1 className='font-bold text-4xl'>COMPANIES</h1>
+              <h3>Choose company</h3>
           </div>
          <div className='mx-8'>
           <Slider {...settings}>

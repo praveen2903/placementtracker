@@ -3,23 +3,23 @@ import { Rating } from "@material-tailwind/react";
 const testimonials = [
   {
     quote:
-      "“Finally, I've found a company that delivers outstanding results in digital marketing, education, and hospitality. Atoms Group has exceeded my expectations, and their expertise has truly helped my business grow.”",
-    author: "Chairman Sir",
-    position: "CEO, Example Company",
+      "“Finally, I've found a company that delivers outstanding results in digital marketing, education, and hospitality. This portal has exceeded my expectations, and helped me to obtain suitable job.”",
+    author: "Chandra Prakash Babu",
+    position: "CSE, VVIT college",
     avatar: "https://booktalks.s3.ap-south-1.amazonaws.com/istockphoto-1305665241-1024x1024.jpg",
   },
   {
     quote:
-      "“Working with Club Team has been a game-changer for my online presence. Their strategic approach and attention to detail have boosted my brand's visibility and engagement. I highly recommend their services.”",
-    author: "Principal Sir",
-    position: "Founder, XYZ Startup",
+      "“Working with this website has been a game-changer for my online presence. Their strategic approach and attention to detail have boosted my brand's visibility and engagement. I highly recommend their services.”",
+    author: "Surya",
+    position: "AIML, RVRJC college",
     avatar: "https://booktalks.s3.ap-south-1.amazonaws.com/istockphoto-1305665241-1024x1024.jpg",
   },
   {
     quote:
-      "“Club Teams is a reliable partner that has transformed our digital marketing efforts. Their team's expertise and innovative solutions have significantly increased our online reach and conversions. We're thrilled with the results.”",
-    author: "Club Incharge",
-    position: "Marketing Director, ABC Company",
+      "“ Job Portal is a reliable partner that has enhanced job opportunities. Their team's expertise and innovative solutions have significantly increased our online reach and conversions. We're thrilled with the results.”",
+    author: "Sajid",
+    position: "EEE, VRSEC college",
     avatar: "https://booktalks.s3.ap-south-1.amazonaws.com/istockphoto-1305665241-1024x1024.jpg",
   },
 ];

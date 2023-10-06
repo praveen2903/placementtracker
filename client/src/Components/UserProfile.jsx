@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../config/url';
 import { useDispatch, useSelector } from 'react-redux';
@@ -83,8 +83,8 @@ function UserProfile() {
                     ))}
                     {value==="registers" && registers && registers.filter((item)=>item.roll===rollno).map((item,index)=>(
                         <div key={index} className=' shadow-2xl p-14 flex flex-col gap-2'>
-                            <h1><span className='font-bold'>ClubName</span> {item.club}</h1>
-                            <h1><span className='font-bold'>EventName</span> {item.event}</h1>
+                            <h1><span className='font-bold'>Company Name</span> {item.club}</h1>
+                            <h1><span className='font-bold'>Department</span> {item.event}</h1>
                             <h1><span className='font-bold'>Year</span> {item.year}</h1>
                             <h1><span className='font-bold'>Section</span> {item.section}</h1>
                         </div>

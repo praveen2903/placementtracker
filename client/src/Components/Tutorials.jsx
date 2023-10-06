@@ -1,8 +1,9 @@
-import React from 'react';
 import data from '../data';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+// eslint-disable-next-line react/prop-types
 function Tutorials({ value }) {
   const settings = {
     dots: true,

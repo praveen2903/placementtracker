@@ -116,12 +116,12 @@ function Contact() {
                 </button>
               </div>
               <div className="p-2 w-full pt-2 mt-4 border-t border-gray-200 text-center">
-                <a className="text-brown">20bq1a05j5@vvit.net</a>
-                <p>+91 9704688559</p>
+                <a className="text-brown">jobportal@gmail.com</a>
+                <p>+91 xxxxxxxxxx</p>
                 <p className="leading-normal my-5">
-                  VVIT College Rd, Namburu,
+                  Telengana, Hyderabad
                   <br />
-                  Andhra Pradesh 522508, India
+                   India
                 </p>
               </div>
             </form>

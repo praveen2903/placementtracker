@@ -1,4 +1,5 @@
 import cheri from '../Images/adiye.mp3'
+// eslint-disable-next-line react/prop-types
 const AudioComponent = ({ isMuted }) => {
     console.log(isMuted);
     return (

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { Button } from "@material-tailwind/react";

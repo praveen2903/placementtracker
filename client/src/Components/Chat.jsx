@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AiFillLike } from 'react-icons/ai';
 import { FaPaperPlane } from 'react-icons/fa';
 import {useDispatch, useSelector} from 'react-redux';
