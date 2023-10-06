@@ -19,7 +19,7 @@ function ClubRegistration({value,club}) {
         variant='gradient'
         color='orange'
         className='mx-auto p-2 font-bold px-10 py-5'>
-          Apply to Company
+          Apply to Department
         </CardHeader>
         <CardBody>
           <div className='grid sm:grid-cols-2 xl:grid-cols-1 sm:pt-10 pt-3 sm:gap-5 gap-3 grid-cols-1'>

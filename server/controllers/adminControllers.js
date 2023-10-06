@@ -72,7 +72,7 @@ const updateEvent=(expressAsyncHandler(async(req,res)=>{
     }
     await newOne.save();
     console.log(newOne);
-    return res.status(StatusCodes.OK).json({message:"Event updated succesfully"});
+    return res.status(StatusCodes.OK).json({message:"company updated succesfully"});
 }))
 
 const updateClub=(expressAsyncHandler(async(req,res)=>{
@@ -86,7 +86,7 @@ const updateClub=(expressAsyncHandler(async(req,res)=>{
     }
     newOne.save();
     console.log("newOne",newOne);
-    return res.status(StatusCodes.OK).json({message:"club update succesfully"});
+    return res.status(StatusCodes.OK).json({message:"Department update succesfully"});
 }))
 // const addTestimony=(expressAsyncHandler(async(req,res)=>{
 //     console.log("profileData",req.body);
@@ -118,7 +118,7 @@ const addClub=(expressAsyncHandler(async(req,res)=>{
     }
     const res1=await clubs.save();
     console.log(res1);
-    return res.status(StatusCodes.OK).json({message:"club added succesfully"});
+    return res.status(StatusCodes.OK).json({message:"Department added succesfully"});
 }));
 const addTestimony=(expressAsyncHandler(async(req,res)=>{
     const testimonial=new Testimony({

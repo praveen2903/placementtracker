@@ -7,8 +7,7 @@ const registerModel=new mongoose.Schema({
     userimage:{type:String},
     year:{type:Number,required:true},
     branch:{type:String,required:true},
-    roll:{type:String,required:true,unique:true},
-    section:{type:String,required:true},
+    roll:{type:String,required:true},
     isWinner:{type:Boolean,required:true},
     isRunner:{type:Boolean,required:true},
 },{

@@ -156,7 +156,7 @@ const adminSlice=createSlice({
             const {message}=action.payload;
             toast.success(message);
         }).addCase(makeWinner.rejected,()=>{
-            toast.error("He is already Runner");
+            toast.error("He is Not Placed");
         });
         builder
         .addCase(makeRunner.pending,(state)=>{
@@ -165,7 +165,7 @@ const adminSlice=createSlice({
             const {message}=action.payload;
             toast.success(message);
         }).addCase(makeRunner.rejected,()=>{
-            toast.error("He is already winner");
+            toast.error("He is already Placed");
         });
     }
 })
