@@ -1,5 +1,5 @@
-import { Button,Card,CardHeader,CardBody,Typography, Popover, PopoverHandler,PopoverContent} from '@material-tailwind/react';
-import vvit from '../Images/vvit-main.jpeg'
+import { Button,Card,CardHeader,CardBody,Typography} from '@material-tailwind/react';
+import vvit from '../assets/bgmain.jpeg'
 import { useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
 import {
@@ -16,6 +16,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {motion} from 'framer-motion';
 import { FcSearch } from 'react-icons/fc';
+
 function Brand() {
     const audio = document.getElementById("audiotag");
     const [isMuted, setIsMuted] = useState(true);
@@ -64,7 +65,7 @@ function Brand() {
                     </PopoverHandler> */}
                     <div className="w-[24rem] p-0 overflow-y-auto lg:flex z-10 hidden">
                         <div className="p-4">
-                        <Typography color="blue-gray" className="font-medium mb-2">VVIT Clubs</Typography>
+                        <Typography color="blue-gray" className="font-medium mb-2">Job Portal</Typography>
                         <Typography variant="small" color="gray" className="font-normal mb-4">
                             Material Tailwind is an easy to use components library for Tailwind CSS and Material Design. 
                         </Typography>
@@ -84,21 +85,21 @@ function Brand() {
                 </motion.div>
             </CardBody>
             <div className='flex items-center gap-2 relative bottom-20  h-fit  lg:hidden  w-fit border-b-2 border-white'>
-              <input className='bg-transparent w-full outline-none text-white  ' placeholder='Club...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
+              <input className='bg-transparent w-full outline-none text-white  ' placeholder='Company...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
               <FcSearch className='cursor-pointer' color='white' size={35} onClick={handleSearch}/>
             </div>
             <span className='font-bold sm:text-2xl lg:text-4xl font-serif text-black relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10 bg-white'>
                   {/* Style will be inherited from the parent element */}
                   
                   <Typewriter
-                    words={['WELCOME', 'TO','VVIT', 'WELCOME TO VVIT']}
+                    words={['REGISTER', 'TO','COMPANY', 'REGISTER TO COMPANY']}
                     loop={3}
                     typeSpeed={70}
                     deleteSpeed={50}
                     delaySpeed={1000}
                 />
                 <br />
-                <h1>JOIN THE CLUB</h1>
+                <h1>WELCOME</h1>
                 </span>
         </Card>
         <div className='fixed lg:top-3/4 sm:top-80 right-8 z-50'>

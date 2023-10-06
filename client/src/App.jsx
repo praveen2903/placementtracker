@@ -7,7 +7,7 @@ import ClubScreen from './pages/ClubScreen';
 import Profile from './pages/Profile';
 import UserProfile from './Components/UserProfile';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Welcome from './pages/admin/Welcome';

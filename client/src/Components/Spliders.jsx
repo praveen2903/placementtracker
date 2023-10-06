@@ -1,10 +1,10 @@
-import React, { useState } from 'react'; // Import useState for managing the showMore state
+import { useState } from 'react'; // Import useState for managing the showMore state
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import vvit from '../Images/vvit-main.jpeg';
-import Nani from '../Images/Nani.jpg';
-import theater from '../Images/theatre.jpeg';
-import dance from '../Images/dance.jpg';
+import vvit from '../assets/pega.jpg';
+import Nani from '../assets/ibm.jpg';
+import theater from '../assets/infosys.jpg';
+import dance from '../assets/tech-mahindra.webp';
 import {motion} from 'framer-motion'
 function Spliders() {
   const images = [vvit, Nani, theater, dance];
@@ -24,7 +24,7 @@ function Spliders() {
         <h1 className='font-bold text-4xl  '>Welcome</h1>
         <div className='flex flex-col'>
           <p className="w-full px-11 lg:leading-loose">
-            To achieve a zoom-in and zoom-out effect on the background image like a movie shot, you can use CSS animations and keyframes. Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect:<p className={`${showMore ? 'block' : 'hidden'}`}>Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect:</p>
+            To achieve a zoom-in and zoom-out effect on the background image like a movie shot, you can use CSS animations and keyframes. Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect:<p className={`${showMore ? 'block' : 'hidden'}`}>Here's how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:</p>
           </p>
           <button onClick={toggleShowMore} className='text-blue-300 font-bold text-sm hover:bg-blue-gray-300 w-fit mx-auto p-1 rounded-lg mt-2'>
             {showMore ? 'Read Less' : 'Read More'}
@@ -49,7 +49,7 @@ function Spliders() {
           {images.map((image, index) => {
             return (
               <SplideSlide key={index} className=''>
-                <img className='object-cover rounded ' src={image} alt="Banner" />
+                <img className='object-cover rounded h-96 w-full ' src={image} alt="Banner" />
               </SplideSlide>
             );
           })}

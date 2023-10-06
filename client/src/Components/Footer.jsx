@@ -1,6 +1,6 @@
 import {AiFillInstagram} from 'react-icons/ai';
 import {BsTwitter,BsBrowserChrome} from 'react-icons/bs';
-import vvit from '../Images/logo-small.jpg'
+import vvit from '../assets/logo.jpg'
 function Footer() {
   return (
     <footer className="bg-[#6d4c41] text-white ">
@@ -14,7 +14,7 @@ function Footer() {
                 className="mr-2 h-10 cursor-pointer"
               />
               <h2 className="text-sm font-semibold  uppercase">
-                VVIT Clubs
+                job portal
               </h2>
             </div>
           </div>
@@ -47,7 +47,7 @@ function Footer() {
             <ul className=" font-medium">
               <li className="mb-3">
                 <a href="#" className="">
-                  Clubs
+                  Jobs
                 </a>
               </li>
               <li className="mb-3">
@@ -75,12 +75,12 @@ function Footer() {
               </li>
               <li className="mb-3">
                 <a href="mailto:20bq1a05j5@vvit.net" className="">
-                  20bq1a05j5@vvit.net
+                  jobportal@gmail.com
                 </a>
               </li>
               <li>
                 <a href="#" className="">
-                  123 Main Street, City
+                  Hyderabad, India
                 </a>
               </li>
             </ul>
@@ -89,7 +89,7 @@ function Footer() {
         <hr className="my-6 border-secondary" />
         <div className="flex justify-between items-center">
           <span className="text-sm ">
-            &copy; {new Date().getFullYear()} VVIT Clubs. All rights
+            &copy; {new Date().getFullYear()} JOB Portal. All rights
             reserved.
           </span>
           <div className="flex space-x-4">

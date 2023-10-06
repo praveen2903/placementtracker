@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import small from '../Images/placement.png';
 import {TiThMenu} from 'react-icons/ti'
 import {FcAbout,FcHome, FcSearch} from 'react-icons/fc'
-import {BsSearchHeart} from 'react-icons/bs'
+// import {BsSearchHeart} from 'react-icons/bs'
 import {Link as Route, useNavigate } from 'react-router-dom';
 import {Link} from 'react-scroll';
 // import { HashLink } from 'react-router-hash-link';
 import {motion} from 'framer-motion';
 import {useDispatch, useSelector } from 'react-redux';
 import {logoutUser} from '../redux/authSlice';
-import { Badge, Avatar, Dialog, Button, IconButton, Input } from "@material-tailwind/react";
+import { Badge, Avatar, Dialog, Button, IconButton } from "@material-tailwind/react";
 import { FiLogOut } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 // import { BsChatTextFill } from "react-icons/bs";
@@ -80,7 +80,7 @@ function Navbar() {
             </ul>
             </motion.ul>
             <div className='flex items-center gap-2 border-b-2 border-blue-600'>
-            <input className='bg-transparent font-bold outline-none  px-2' placeholder='Club...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
+            <input className='bg-transparent font-bold outline-none  px-2' placeholder='search...'   value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
             <FcSearch className='cursor-pointer' color='white' size={25} onClick={handleSearch}/>
             </div>
         </div>
