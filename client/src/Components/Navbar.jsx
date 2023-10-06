@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import small from '../Images/placement.png';
+import small from '../Images/navlogo.jpeg';
 import {TiThMenu} from 'react-icons/ti'
 import {FcAbout,FcHome, FcSearch} from 'react-icons/fc'
 // import {BsSearchHeart} from 'react-icons/bs'
@@ -62,7 +62,7 @@ function Navbar() {
             initial={{scale:0}}
             whileInView={{scale:1}}
             transition={{duration:0.7}}>
-              <Route to="/"><img className='sm:w-15 sm:h-10 w-14 h-10 xl:h-14 xl:w-20  cursor-pointer'src={small} alt='logo'/></Route>
+              <Route to="/"><img className='sm:w-15 sm:h-12 w-16 h-10 xl:h-14 xl:w-20  cursor-pointer'src={small} alt='logo'/></Route>
             </motion.div>
             
         </div>
@@ -76,6 +76,7 @@ function Navbar() {
                 <li className='cursor-pointer'><Link smooth={true} duration={1000}  to='#about'><IconButton variant="gradient"color='white' className="rounded-full"><FcAbout size={25}/></IconButton></Link></li>
                 <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#category'><IconButton variant="gradient"color='white' className="rounded-full"><img src={clu} /></IconButton></Link></li>
                 <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#contact'><IconButton variant="gradient"color='white' className="rounded-full"><img src={tele}/></IconButton></Link></li>
+                <li className='cursor-pointer'>{userInfo && userInfo.category==="Coordinator" && <li><Route to='/placementresults'><IconButton variant="gradient"color='white' className="rounded-full"><img src={dash}/></IconButton></Route></li>}</li>
                 <li className='cursor-pointer'>{userInfo && userInfo.isAdmin && <li><Route to='/dashboard'><IconButton variant="gradient"color='white' className="rounded-full"><img src={dash}/></IconButton></Route></li>}</li>
             </ul>
             </motion.ul>

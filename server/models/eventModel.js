@@ -1,13 +1,16 @@
 const mongoose=require('mongoose');
 const eventModel=new mongoose.Schema({
     clubname:{type:String,required:true},
-    eventname:{type:String,required:true,unique:true},
+    eventname:{type:String,required:true},
     eventdate: {
         type:Date,
         required: true, // Make eventdate required
     },
+    
     eventimage:{type:String,default:"https://clubs-bucket.s3.ap-south-1.amazonaws.com/event.jpg"},
-    description:{type:String, maxLength:200},
+    description:{type:String},
+    cgpa:{type:Number,required:true},
+    companyurl:{type:String,required:true},
 },{
     timestamps:true,
 });

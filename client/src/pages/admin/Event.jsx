@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 function Event() {
     const params=useParams();
     const {eventname}=params;
-    const[eventdata,setEventdata]=useState({id:"",club:"",image:null,name:"",eventdate:"",desc:""});
+    const[eventdata,setEventdata]=useState({id:"",club:"",image:null,name:"",eventdate:"",cgpa:0,desc:"",companyurl:""});
     const events=useSelector((state)=>state.events.events);
     const dispatch=useDispatch();
     useEffect(()=>{
@@ -58,23 +58,26 @@ function Event() {
                     </div>
                     <div className='flex flex-col gap-6'>
                         {eventname ?  <Typography variant="h4" color="blue-gray">
-                            Update Event
+                            Update Company
                         </Typography>: <Typography variant="h4" color="blue-gray">
-                            Add Event
+                            Add Company
                         </Typography>}
                             <select id="mySelect" name="mySelect"  onChange={(e)=>setEventdata({...eventdata,"club":e.target.value})} value={eventdata?.club} className='border-4 px-12 py-3'>
                                 <option value="" disabled>
-                                Select Club
+                                Select Department
                                 </option>
-                                <option value="MUSIC">Music</option>
-                                <option value="DANCE">Dance</option>
-                                <option value="THEATER">Theater</option>
-                                <option value="TECHNICAL">Technical</option>
-                                <option value="CULINARY">Culinary</option>
+                                <option value="CSE">CSE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="CIVIL">CIVIL</option>
+                                <option value="MECH">MECH</option>
                             </select>
-                        <Input label='Event Name' color='brown' type='text' value={eventdata?.name} onChange={(e)=>setEventdata({...eventdata,"name":e.target.value})}/>
-                        <Input type="datetime-local" label='Date' color='brown' value={eventdata?.eventdate} onChange={(e)=>setEventdata({...eventdata,"eventdate":e.target.value})} />
-                        <Textarea label="Event Description" color='brown' type='text' maxLength={200} value={eventdata?.desc} onChange={(e)=>setEventdata({...eventdata,"desc":e.target.value})} />
+                        <Input label='Company Name' color='brown' type='text' value={eventdata?.name} onChange={(e)=>setEventdata({...eventdata,"name":e.target.value})}/>
+                        <Input type="datetime-local" label='Deadline' color='brown' value={eventdata?.eventdate} onChange={(e)=>setEventdata({...eventdata,"eventdate":e.target.value})} />
+                        <Input label='CGPA CutOff' color='brown' type='number' value={eventdata?.cgpa} onChange={(e)=>setEventdata({...eventdata,"cgpa":e.target.value})}/>
+                        <Input label='Register URL' color='brown' type='text' value={eventdata?.companyurl} onChange={(e)=>setEventdata({...eventdata,"companyurl":e.target.value})}/>
+
+                        <Textarea label="Company Description" color='brown' type='text'  value={eventdata?.desc} onChange={(e)=>setEventdata({...eventdata,"desc":e.target.value})} />
                         <Button  type='submit' color='brown'>Submit</Button>
                     </div>
                 </form>

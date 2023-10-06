@@ -38,21 +38,21 @@ function Welcome() {
             <div className="box cursor-pointer transition ease-in-out delay-150 md:hover:-translate-y-1 md:hover:scale-105 flex justify-center items-center flex-col bg-brown-200 h-48 rounded-lg lg:h-40 ">
               <BsRocket className='scale-150'/>
               <span className='pt-6 flex flex-col gap-3'>
-                <h1>Clubs</h1>
+                <h1>Departments</h1>
                 <p className='mx-auto font-bold'>{clubscount}</p>
               </span>
             </div>
             <div className="box cursor-pointer transition ease-in-out delay-150 md:hover:-translate-y-1 md:hover:scale-105 flex justify-center items-center flex-col bg-brown-200 h-48 rounded-lg lg:h-40 ">
               <BsRocket className='scale-150'/>
               <span className='pt-6 flex flex-col gap-3'>
-                <h1>Events</h1>
+                <h1>Companies</h1>
                 <p className='mx-auto font-bold'>{eventscount}</p>
               </span>
             </div>
             <div className="box cursor-pointer transition ease-in-out delay-150 md:hover:-translate-y-1 md:hover:scale-105 flex justify-center items-center flex-col bg-brown-200 h-48 rounded-lg lg:h-40 ">
               <BsRocket className='scale-150'/>
               <span className='pt-6 flex flex-col gap-3'>
-                <h1>Registers</h1>
+                <h1>Department Drive Registers</h1>
                 <p className='mx-auto font-bold'>{registerscount}</p>
               </span>
             </div>

@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect, useState } from 'react'
-import { toast } from 'react-toastify';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { addRegister, deleteRegister, getRegisters } from '../redux/registerSlice';
+import { getRegisters } from '../redux/registerSlice';
 import { Rings } from 'react-loader-spinner';
 import { getClubRegisters, getClubs } from '../redux/clubSlice';
 import ReactPaginate from 'react-paginate';
@@ -21,6 +20,7 @@ import Team from '../Components/Team';
 import Tutorials from '../Components/Tutorials';
 import ClubRegistration from '../Components/ClubRegistration';
 import moment from 'moment'
+import CompanyRegister from '../Components/CompanyRegister';
 
 function ClubScreen() {
     const { pathname } = useLocation();
@@ -33,22 +33,22 @@ function ClubScreen() {
     const [studentFilter, setStudentFilter] = useState(false);
     const [coordinatorFilter, setCoordinatorFilter] = useState(false);
 
-    const [open, setOpen] = useState(false);
     const [registeropen, setRegisteropen] = useState(false);
-    const [dailogData,setDailogData]=useState({name:"",desc:""});
+    const [companyopen, setCompanyopen] = useState(false);
+    const[company,setCompany]=useState("");
+
     const handleRegisterOpen=()=>{
       setRegisteropen(!registeropen);
     }
-    const handleOpen = (inp) =>{
-      if(inp==="winner"){
-        setDailogData({"name":"Winner","desc": "Now he is winner for one of these club events, If u don't you can click again "})
-      }
-      setOpen(!open);
+    const handleCompanyOpen=(company)=>{
+      setCompany(company);
+      setCompanyopen(!companyopen)
     }
+   
  
     const [currentPage, setCurrentPage] = useState(1);
     const perPage = 10; // Number of products per page
-
+  
     const[searchroll,setSearchroll]=useState("");
     const navigate=useNavigate();
     const params=useParams();
@@ -58,13 +58,11 @@ function ClubScreen() {
     const load=useSelector((state)=>state.clubs.loading);
     const loading = useSelector((state) => state.auth.loading);
     const userInfo = useSelector((state) => state.auth.userInfo);
-    const[registerInfo,setRegisterInfo]=useState(null);
     // const registerInfo = useSelector((state) => state.register.registerInfo);
     const registers= useSelector((state) => state.register.registers);
     const clubregisters= useSelector((state) => state.clubs.clubregisters);
     const events= useSelector((state) => state.events.events);
-   
-    //fetch event data
+    
     useEffect(()=>{
         const fetchData=async()=>{
             console.log("user",userInfo);
@@ -75,25 +73,25 @@ function ClubScreen() {
         }
         fetchData();
    },[dispatch]);
-   useEffect(()=>{
-    findRegister();
-   },[events])
+  //  useEffect(()=>{
+  //   findRegister();
+  //  },[events])
    //Find the specific register of club .
-   const findRegister =async() => {
-    await dispatch(getRegisters());
-    if (userInfo && registers.length>0) {
-        const res =registers.find(register => register.roll === userInfo.rollno && register.club === name);
+  //  const findRegister =async() => {
+  //   await dispatch(getRegisters());
+  //   if (userInfo && registers.length>0) {
+  //       const res =registers.find(register => register.roll === userInfo.rollno && register.club === name);
         
-        // Check if a matching register object was found
-        if (res) {
-            setRegisterInfo(res);
-        } else {
-            // Handle the case where no matching register was found
-            console.log("No matching register found.");
-            setRegisterInfo(null);
-        }
-      }
-    }
+  //       // Check if a matching register object was found
+  //       if (res) {
+  //           setRegisterInfo(res);
+  //       } else {
+  //           // Handle the case where no matching register was found
+  //           console.log("No matching register found.");
+  //           setRegisterInfo(null);
+  //       }
+  //     }
+  //   }
 
     const handleCategoryChange = (e) => {
         setYearFilter(e.target.value);
@@ -143,20 +141,8 @@ function ClubScreen() {
     const handleSearch=(roll)=>{
         setSearchroll(roll);
     }
-    const handleDeleteregister=async(rollno)=>{
-        try{
-           await dispatch(deleteRegister(rollno));
-           await dispatch(getRegisters());
-           await findRegister();
-           setRegisterInfo(null);
-           console.log("delete",registerInfo);
-
-        }catch(err){
-            toast.error("Registration not deleted succesfully");
-        }
-    }
+   
     const handleWinner=async(rollno,winner)=>{
-        handleOpen("winner");
         await dispatch(makeWinner({rollno,winner}));
         await dispatch(getRegisters());
     }
@@ -164,25 +150,7 @@ function ClubScreen() {
         await dispatch(makeRunner({rollno,runner}));
         await dispatch(getRegisters());
     }
-    const handleRegister=async(clubname,eventname)=>{
-        const club=clubname;
-        const event=eventname;
-        if(userInfo){
-            const{category,username,image,branch,year,section,rollno}=userInfo;
-            try{
-                const res1=await dispatch(addRegister({club,event,category,username,image,branch,year,section,rollno}));
-                await dispatch(getRegisters());
-                console.log(res1.payload);
-                setRegisterInfo(res1.payload);
-                console.log("registerInfo",registerInfo);
-
-            }catch(err){
-                toast.error("You already registered for one of these events");
-            }
-        }else{
-            navigate('/login');
-        }
-    }
+    
     if (loading || load) {
         return (
           <div className="flex justify-center items-center h-screen">
@@ -235,7 +203,7 @@ function ClubScreen() {
                 <img 
                     src={item.image} 
                     alt="image" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fill"
                 />
                 </CardHeader>
                 <CardBody>
@@ -245,7 +213,7 @@ function ClubScreen() {
 
                 </div>
                 <Typography variant="h4" color="blue-gray" className="mb-2">
-                    Welcome to ${name} Department
+                    Welcome to {name} Department
                 </Typography>
                 <Typography color="gray" className="font-normal mb-8">
                     {item.desc}
@@ -266,54 +234,35 @@ function ClubScreen() {
           <ClubRegistration value={handleRegisterOpen} club={name}/>
         </Dialog>
         {events.filter((item)=>item.clubname===name).length>0 && 
-        <Slider {...settings} className='mx-8 mb-10'>
+        <Slider {...settings} className='mx-8 '>
         {events.filter((item)=>item.clubname===name).map((event,index)=>(
-            <div key={index} className=' mt-16 '>
-                <Card
-                    shadow={false}
-                    className="relative grid md:h-[40rem] h-full w-full max-w-[28rem] sm:max-w-full items-end justify-center overflow-hidden text-center"
-                    >
-                    <CardHeader
-                        floated={false}
-                        shadow={false}
-                        color="transparent"
-                        className={`absolute inset-0 m-0 h-full w-full rounded-none bg-cover bg-center`}
-                        style={{ backgroundImage: `url('${event.eventimage}')` }}                    >
-                        <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/100 via-black/70" />
-                    </CardHeader>
-                    <CardBody className="relative  px-6 md:px-12">
-                        {userInfo && <Typography
-                        variant="h2"
-                        color="white"
-                        className="mb-3 font-bold leading-[1.5] text-sm lg:text-4xl"
-                        >
-                        Hey {userInfo.username}
-                        </Typography>}
-                        <Typography
-                        variant="h2"
-                        color="white"
-                        className="mb-3 font-bold lg:text-5xl leading-[1.5] text-white text-sm"
-                        >
-                        Be the face of VVIT Clubs
-                        </Typography>
-                        <Typography variant="h5" className="mb-4 text-white text-sm lg:text-3xl">
-                        {event.eventname} Event
-                        </Typography>
-                        {(registerInfo && registerInfo.club && registerInfo.event===event.eventname) ? <button className='bg-red-500 md:px-8 px-2 lg:py-2 text-white h-fit mt-10 ' onClick={()=>handleDeleteregister(registerInfo.roll)}>UnRegister</button>
-                        : <button className='bg-green-500 md:px-8 px-2 lg:py-2 text-white h-fit mt-10 lg:font-bold 'onClick={()=>handleRegister(event.clubname,event.eventname)}>Register</button>}
-                        <Typography
-                        variant="h5"
-                        color="white"
-                        className="pt-5 pb-8 leading-[1.5] text-gray-400 text-sm lg:text-xl"
-                        >
-                        {event.description}<br/>
-                        
-                        {moment(event.eventdate).format("YYYY-MM-DD HH:mm:ss")}
-                        </Typography>
-                    </CardBody>
+            <div key={index} className=' mt-16 h-fit'>
+                <Card className='shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-0 lg:py-20 py-5'>
+                    <div className=' flex items-center justify-center flex-col  '>
+                      <img src={event.eventimage} alt='company' className=' rounded-lg h-52 lg:h-fit '/>
+                      <button className='bg-green-500 md:px-8 px-4 py-1 lg:py-2 text-white h-fit lg:mt-10 lg:font-bold 'onClick={()=>handleCompanyOpen(event.eventname)}>Register</button>
+                    </div>
+                    <div className='flex flex-col gap-3 px-10'>
+                      <h1 className='font-bold text-lg'>Hey {userInfo.firstName}</h1>
+                      <h1 className='font-bold'>Company: {event.eventname}</h1>
+                      <div >
+                        <h1 className='font-bold mb-2'>Job Description:</h1>
+                        <h1 className='leading-loose hidden md:block mb-2'>{event.description}</h1>
+                        <h1 className='font-bold mb-2'>DeadLine: {moment(event.eventdate).format("YYYY-MM-DD")}</h1>
+                        <h1 className='font-bold'>CGPA {event.cgpa}</h1>
+                      </div>
+                    </div>
                 </Card>
             </div>)
         )}
+         <Dialog
+          size="xs"
+          open={companyopen}
+          handler={handleCompanyOpen}
+          className="bg-white shadow-none"
+        >
+          <CompanyRegister value={handleCompanyOpen} club={name} event={company}/>
+        </Dialog>
         </Slider>}
        {userInfo &&  (userInfo.isAdmin || userInfo.category==="Coordinator") && <div>
        <h1 className='font-bold  text-2xl sm:text-3xl pt-10 text-center text-brown-700'>Event Registrations</h1>
@@ -407,15 +356,14 @@ function ClubScreen() {
                     <th className="px-4 py-2">Year</th>
                     <th className="px-4 py-2">Branch</th>
                     <th className="px-4 py-2">RollNo</th>
-                    <th className="px-4 py-2">Section</th>
-                    <th className="px-4 py-2">Winner</th>
-                    <th className="px-4 py-2">Runner</th>
+                    <th className="px-4 py-2">Placed</th>
+                    <th className="px-4 py-2">NotPlaced</th>
                 </tr>
                 </thead>
                 <tbody>
                 {currentProducts?.filter((item)=>item.roll===searchroll).map((product) => (
                     
-                    <tr key={product.id} className='bg-slate-300'>
+                    <tr key={product.id} className='bg-blue-gray-800 text-white'>
                     <td className="border text-center px-4 py-2"><Link to={`${product.roll}/profile`}><img className="rounded-full w-10 h-10 mx-auto"src={product.userimage}/></Link></td>
                     <td className="border text-center px-4 py-2">
                         {product.name}
@@ -427,7 +375,6 @@ function ClubScreen() {
                     <td className="border text-center px-4 py-2">{product.year}</td>
                     <td className="border text-center px-4 py-2">{product.branch}</td>
                     <td className="border text-center px-4 py-2">{product.roll}</td>
-                    <td className="border text-center px-4 py-2">{product.section}</td>
                     <td>{userInfo && (userInfo.isAdmin || userInfo.category==="Coordinator") && <div className="w-fit mx-auto cursor-pointer">{product.isWinner ? <img src={gold} className='w-10 h-10 object-cover'  onClick={()=>handleWinner(product.roll,product.isWinner)}/>:<Switch color='red' onClick={()=>handleWinner(product.roll,product.isWinner)}/>}</div>}</td>
                     <td>{userInfo && (userInfo.isAdmin || userInfo.category==="Coordinator")&& <div className="w-fit mx-auto cursor-pointer">{product.isRunner ? <img src={silver} className='w-10 h-10 object-cover'  onClick={()=>handleRunner(product.roll,product.isRunner)}/>:<Switch color='red' onClick={()=>handleRunner(product.roll,product.isRunner)}/>}</div>}</td>
                     </tr>
@@ -446,7 +393,6 @@ function ClubScreen() {
                     <td className="border text-center px-4 py-2">{product.year}</td>
                     <td className="border text-center px-4 py-2">{product.branch}</td>
                     <td className="border text-center px-4 py-2">{product.roll}</td>
-                    <td className="border text-center px-4 py-2">{product.section}</td>
                     <td>{userInfo && (userInfo.isAdmin || userInfo.category==="Coordinator") && <div className="w-fit mx-auto cursor-pointer">{product.isWinner ? <img src={gold} className='w-10 h-10 object-cover'  onClick={()=>handleWinner(product.roll,product.isWinner)}/>:<Switch color='red' onClick={()=>handleWinner(product.roll,product.isWinner)}/>}</div>}</td>
                     <td>{userInfo && (userInfo.isAdmin || userInfo.category==="Coordinator")&& <div className="w-fit mx-auto cursor-pointer">{product.isRunner ? <img src={silver} className='w-10 h-10 object-cover'  onClick={()=>handleRunner(product.roll,product.isRunner)}/>:<Switch color='red' onClick={()=>handleRunner(product.roll,product.isRunner)}/>}</div>}</td>
                     </tr>
@@ -474,7 +420,7 @@ function ClubScreen() {
          </div>}
          {currentProducts.filter((item) => item.isWinner || item.isRunner).length > 0 && (
             <div className='my-16 mx-10 relative '>
-                <h1 className='text-center text-3xl font-bold mb-16 text-brown-700'>Winners and Runners</h1>
+                <h1 className='text-center text-3xl font-bold mb-16 text-brown-700'>Placement Results</h1>
                 <Slider {...settings}>
                 {currentProducts.filter((item) => item.isWinner || item.isRunner).map((item) => (
                   <div key={item.id} className='relative bg-white '>
@@ -486,12 +432,12 @@ function ClubScreen() {
                             <img src={item.userimage} alt='winorrun' className='w-60 h-60 object-cover rounded-full' />
                         </div>
                         <div className='mt-6'>                
-                          <h1 className='text-2xl font-semibold pb-5'>{item.isWinner ? <span className='flex gap-2'>Winner <img src={gold} alt='gold' className='w-10 h-10 object-cover'/></span>:<span className='flex gap-2'>Runner <img src={silver} alt='silver' className='w-10 h-10 object-cover'/></span>}</h1>
+                          <h1 className='text-2xl font-semibold pb-5'>{item.isWinner ? <span className='flex gap-2'>Placed <img src={gold} alt='gold' className='w-10 h-10 object-cover'/></span>:<span className='flex gap-2'>Not Placed <img src={silver} alt='silver' className='w-10 h-10 object-cover'/></span>}</h1>
                           <h1 className='text-xl font-semibold'>{item.name}</h1>
                           <p className='text-gray-600'>{item.roll}</p>
                           <p className='text-gray-600'>Year {item.year}</p>
                           <p className='text-gray-600'>Branch {item.branch}</p>
-                          <p className='text-gray-600'>Section {item.section}</p>
+                          
                           <div className='mt-4'>
                             <Link to={`${item.roll}/profile`}>
                               <button className='px-4 py-2 bg-brown-900 text-white rounded-lg'>
@@ -524,32 +470,7 @@ function ClubScreen() {
           )}
           <Tutorials value={name}/>
          <Footer/>
-         <Dialog
-            open={open}
-            handler={handleOpen}
-            animate={{
-              mount: { scale: 1, y: 0 },
-              unmount: { scale: 0.9, y: -100 },
-            }}
-          >
-            <DialogHeader>{dailogData.name}</DialogHeader>
-            <DialogBody divider>
-              {dailogData["desc"]}  
-            </DialogBody>
-            <DialogFooter>
-              <Button
-                variant="text"
-                color="red"
-                onClick={handleOpen}
-                className="mr-1"
-              >
-                <span>Cancel</span>
-              </Button>
-              <Button variant="gradient" color="green" onClick={handleOpen}>
-                <span>Confirm</span>
-              </Button>
-            </DialogFooter>
-          </Dialog>
+        
     </div>
   )
 }

@@ -13,7 +13,7 @@ const sendMail=async(email,message)=>{
         const mailOptions={
             from:"vvitclubs7078@gmail.com",
             to:email,
-            subject:"Message from VVIT Clubs",
+            subject:"Message from Placement Hub",
             text:`${message}`,
         };
         transporter.sendMail(mailOptions,(error)=>{

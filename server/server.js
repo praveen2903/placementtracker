@@ -10,6 +10,7 @@ const msgRouter=require('./routes/msgRoutes');
 const eventRouter=require('./routes/eventRoutes');
 const clubRouter=require('./routes/clubRoutes');
 const chatRouter=require('./routes/chatRoutes');
+const docRouter=require('./routes/docRouter')
 const connectDB=require('./db/connectDB');
 const { Server } = require("socket.io");
 const http = require("http");
@@ -68,8 +69,10 @@ app.use("/api/admin",upload.single("image"), AdminRouter);
 app.use("/api/users",userRouter);
 app.use("/api/chat",chatRouter);
 app.use("/api/msgs",msgRouter);
+app.use("/api/verify",upload.single("image"),docRouter)
 app.use("/api/clubs",clubRouter);
 app.use("/api/events",eventRouter);
+
 
 
 

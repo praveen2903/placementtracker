@@ -48,14 +48,16 @@ export const updateEvent=createAsyncThunk("api/updateEvent",async({id,club,name,
         console.log(err);
     }
 })
-export const addEvent=createAsyncThunk("api/addEvent",async({club,name,eventdate,image,desc})=>{
+export const addEvent=createAsyncThunk("api/addEvent",async({club,name,eventdate,image,desc,cgpa,companyurl})=>{
     try{
         const result=await axios.post(`${BASE_URL}/api/admin/addEvent`,{
             club,
             name,
             eventdate,
             image,
+            cgpa,
             desc,
+            companyurl,
         },{
             headers:{
               "Content-Type":"multipart/form-data",
@@ -84,7 +86,7 @@ const eventSlice=createSlice({
             state.events=payload.events;
         }).addCase(getEvents.rejected,(state)=>{
             state.loading=false;
-            toast.error("Unable to get events");
+            toast.error("Unable to get Companies");
         })
         builder
         .addCase(addEvent.pending,(state)=>{
@@ -94,7 +96,7 @@ const eventSlice=createSlice({
             toast.success(payload.message);
         }).addCase(addEvent.rejected,(state)=>{
             state.loading=false;
-            toast.error("Event not uploaded");
+            toast.error("Company not uploaded");
         })
     }
 })

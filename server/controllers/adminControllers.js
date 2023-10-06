@@ -22,13 +22,14 @@ const getDetails=async(req,res)=>{
 
 const addEvent=(expressAsyncHandler(async(req,res)=>{
     // const correctdate = moment(req.body.eventdate).utc().toDate(); it is when I am in localhost
-    const correctdate =event.eventDate.subtract(5, 'hour').toDate();;
-    console.log("correctdate",correctdate);
+    // const correctdate =event.eventDate.subtract(5, 'hour').toDate();;
     const events=new Event({
         clubname:req.body.club,
         eventname:req.body.name,
-        eventdate:correctdate,  
+        eventdate:req.body.eventdate,  
         description:req.body.desc,
+        cgpa:req.body.cgpa,
+        companyurl:req.body.companyurl,
     });
     if (req.file) {
         // Uploading the profile image to AWS S3
@@ -71,7 +72,7 @@ const updateEvent=(expressAsyncHandler(async(req,res)=>{
     }
     await newOne.save();
     console.log(newOne);
-    return res.status(StatusCodes.OK).json({message:"Event updated succesfully"});
+    return res.status(StatusCodes.OK).json({message:"company updated succesfully"});
 }))
 
 const updateClub=(expressAsyncHandler(async(req,res)=>{
@@ -85,7 +86,7 @@ const updateClub=(expressAsyncHandler(async(req,res)=>{
     }
     newOne.save();
     console.log("newOne",newOne);
-    return res.status(StatusCodes.OK).json({message:"club update succesfully"});
+    return res.status(StatusCodes.OK).json({message:"Department update succesfully"});
 }))
 // const addTestimony=(expressAsyncHandler(async(req,res)=>{
 //     console.log("profileData",req.body);
@@ -117,7 +118,7 @@ const addClub=(expressAsyncHandler(async(req,res)=>{
     }
     const res1=await clubs.save();
     console.log(res1);
-    return res.status(StatusCodes.OK).json({message:"club added succesfully"});
+    return res.status(StatusCodes.OK).json({message:"Department added succesfully"});
 }));
 const addTestimony=(expressAsyncHandler(async(req,res)=>{
     const testimonial=new Testimony({

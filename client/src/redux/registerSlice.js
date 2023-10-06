@@ -2,7 +2,36 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../config/url";
 import { toast } from "react-toastify";
+export const checkVerify=createAsyncThunk(
+  "api/addDoc",
+  async (payload)=>{
+    const res=await axios.post(`${BASE_URL}/api/verify/${payload.rollno}`,payload,{
+      headers: {
+        "Content-Type":"multipart/form-data",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    if (res.data.error) {
+      throw new Error(res.data.message);
+    }
+    
+    return res.data;
 
+
+  }
+)
+
+export const getDocs=createAsyncThunk(
+  "api/getDocs",
+  async()=>{
+    const res=await axios.get(`${BASE_URL}/api/verify/`,{
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.data;
+  }
+)
 export const addRegister = createAsyncThunk(
     "api/addRegister",
     async (payload) => {
@@ -53,6 +82,7 @@ export const getRegisters=createAsyncThunk("api/getRegisters",async()=>{
     name:"registration",
     initialState:{
         registers:[],
+        docs:[],
         loading:false,
         error:null,
     },
@@ -83,10 +113,35 @@ export const getRegisters=createAsyncThunk("api/getRegisters",async()=>{
             state.loading = false;
             toast.error(payload.message);
           });
+        builder
+        .addCase(getDocs.pending, (state) => {
+            state.loading = true;
+          })
+          .addCase(getDocs.fulfilled, (state, { payload }) => {
+            state.loading = false;
+            state.docs = payload;
+          })
+          .addCase(getDocs.rejected, (state, { payload }) => {
+            state.loading = false;
+            toast.error(payload.message);
+          });
           builder.addCase(deleteRegister.fulfilled, (state) => {
             state.registerInfo = null;
             toast.success("register delete successful!");
           });
+        builder
+        .addCase(checkVerify.pending, (state) => {
+            state.loading = true;
+          })
+          .addCase(checkVerify.fulfilled, (state, { payload }) => {
+            state.loading = false;
+            toast.success(payload.message);
+          })
+          .addCase(checkVerify.rejected, (state, { error }) => {
+            state.loading = false;
+            toast.error(error.message);
+          });
+         
     }
     });
     export default registerSlice.reducer;

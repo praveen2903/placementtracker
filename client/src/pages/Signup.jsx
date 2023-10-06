@@ -3,11 +3,13 @@ import {useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector} from "react-redux";
 import { signupUser } from "../redux/authSlice";
 import { Link } from 'react-router-dom';
-import { Button, Input, Typography } from '@material-tailwind/react';
+import { Button, Input, Radio, Typography } from '@material-tailwind/react';
 function Signup() {
+    const[cat,setCat]=useState("Student");
     const[data,setData]=useState({
         firstname:"",
         lastname:"",
+        rollno:"",
         email:"",
         password:"",
         image:null,
@@ -45,8 +47,13 @@ function Signup() {
                     Sign Up
                 </Typography>            
                 <form onSubmit={handleSignup} className='flex flex-col md:py-0 my-3 gap-6 sm:px-10 sm:mx-5 mx-10 px-0'>
+                    <div className='flex gap-10'>
+                        <Radio name='type' label="student" defaultChecked/>
+                        <Radio name='type' label="coordinator" onChange={()=>setCat("coordinator")}/>
+                    </div>
                     <Input size="lg" label="First Name" name="firstname" value={data.firstname}onChange={handleChange}/>
                     <Input size="lg" label="Last Name" name="lastname" value={data.lastname}onChange={handleChange}/>
+                    <Input size="lg" label="Roll No" name="rollno" value={data.rollno}onChange={handleChange}/>
                     <Input size="lg" label="Email" name="email" value={data.email} onChange={handleChange}/>
                     <Input type="password" size="lg" label="Password" value={data.password} name="password" onChange={handleChange}/>
                     <Input className='outline-none'type='file'onChange={handleFile} />
@@ -65,7 +72,7 @@ function Signup() {
                             <option value="SPECIALIZATIONS">SPECIALIZATIONS</option>
                         </select>
                     </div>
-                    <Input type="number" size="lg" label="Passout Year" value={data.year} name="year" onChange={handleChange}/>
+                    {cat==="Student" &&<Input type="number" size="lg" label="Passout Year" value={data.year} name="year" onChange={handleChange}/>}
                     <Input type="date" size="lg" label="Date Of Birth" value={data.birth} name="birth" onChange={handleChange}/>
 
                     <div>

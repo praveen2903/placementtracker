@@ -63,10 +63,10 @@ if (loading) {
             <div className="mb-8 flex items-center justify-between gap-8 flex-col sm:flex-row">
               <div>
                 <Typography variant="h5" color="brown-gray">
-                  Events List
+                  Companies List
                 </Typography>
                 <Typography color="gray" className="mt-1 font-normal" >
-                  See Information about all events.
+                  See Information about all companies.
                 </Typography>
               </div>
               <div className="flex  flex-row gap-2 shrink-0">
@@ -77,7 +77,7 @@ if (loading) {
                     <Link to='/admin/addEvent'>
                       <div  className="flex gap-2">
                         <BiSolidAddToQueue/>
-                        Add Event
+                        Add Company
                       </div>
                     </Link>
                 </Button>

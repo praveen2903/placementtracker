@@ -6,6 +6,7 @@ const userSchema=new mongoose.Schema(
         category:{type:String,default:"Student"},
         firstName:{type:String},
         lastName:{type:String},
+        rollno:{type:String,required:true,unique:true},
         email: {
             type: String,
             required: [true, "Email is required"],
@@ -18,7 +19,7 @@ const userSchema=new mongoose.Schema(
               "https://booktalks.s3.ap-south-1.amazonaws.com/istockphoto-1305665241-1024x1024.jpg",
         },
         branch:{type:String,required:true},
-        year:{type:Number,required:true},
+        year:{type:Number},
         mobile:{type:Number,required:true,unique:true},
         birth: {type:Date, required: true},
         isAdmin:{type:Boolean,default:false,required:true},
