@@ -10,7 +10,7 @@ function Footer() {
             <div className="flex items-center mb-4">
               <img
                 src={vvit}
-                alt="Mythri Jewellers"
+                alt="Welcome to job portal"
                 className="mr-2 h-10 cursor-pointer"
               />
               <h2 className="text-sm font-semibold  uppercase">

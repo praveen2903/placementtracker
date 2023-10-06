@@ -82,7 +82,7 @@ function Categories() {
           </div>
          <div className='mx-8'>
           <Slider {...settings}>
-              {clubs.map((product, index) => {
+              {clubs && clubs.map((product, index) => {
                 return (
                   <div key={index} >
                           <div key={index} onClick={()=>checkLogin(product.name)} className='m-0 sm:m-5 shadow-xl pb-4  bg-white hover:scale-105 transition-all duration-500'>
