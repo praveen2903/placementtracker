@@ -1,3 +1,9 @@
+import package1 from "./assets/packages1.jpg"
+import package2 from "./assets/package2.jpg"
+import package3 from "./assets/package3.jpg"
+import package4 from "./assets/package4.jpg"
+import package5 from "./assets/package5.jpg"
+import package6 from "./assets/package6.jpg"
 const data={
     menuItems:[
         {
@@ -25,48 +31,39 @@ const data={
     tutorials:[
       {
         id:"home",
-        url:"https://youtu.be/-PDTmdkJAv8?si=rt8mXJ4p49sn37vv",
-        desc:"To achieve a zoom-in and zoom-out effect on the background image like a movie shot, you can use CSS animations and keyframes. Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect",
+        url:package1,
       },
       {
         id:"home",
-        url:"https://youtu.be/vL332Q4FCNg?si=SlbS94fFLvSZtcXz",
-        desc:"To achieve a zoom-in and zoom-out effect on the background image like a movie shot, you can use CSS animations and keyframes. Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect",
+        url:package2,
       },
       {
         id:"home",
-        url:"https://www.youtube.com/watch?v=sjXfClqA0Ls",
+        url:package3,
+      },
+      {
+        id:"DANCE",
+        url:package4,
+      },
+      {
+        id:"DANCE",
         desc:"Previous dance tutorial",
       },
       {
         id:"DANCE",
-        url:"https://youtu.be/cw6p3BL05Ng?si=a6BbNU_Hn35ckzut",
-        desc:"Previous dance tutorial",
+        url:package5,
       },
       {
-        id:"DANCE",
+        id:"MUSIC",
+        url:package6,
+      },
+      {
+        id:"MUSIC",
         url:"https://youtu.be/-PDTmdkJAv8?si=rt8mXJ4p49sn37vv",
-        desc:"Previous dance tutorial",
-      },
-      {
-        id:"DANCE",
-        url:"https://youtu.be/-PDTmdkJAv8?si=rt8mXJ4p49sn37vv",
-        desc:"Previous dance tutorial",
       },
       {
         id:"MUSIC",
         url:"https://www.youtube.com/watch?v=dyqvPUxiqqc",
-        desc:"Previous dance tutorial",
-      },
-      {
-        id:"MUSIC",
-        url:"https://youtu.be/-PDTmdkJAv8?si=rt8mXJ4p49sn37vv",
-        desc:"Previous dance tutorial",
-      },
-      {
-        id:"MUSIC",
-        url:"https://www.youtube.com/watch?v=dyqvPUxiqqc",
-        desc:"Previous dance tutorial",
       },
     ]
 }
