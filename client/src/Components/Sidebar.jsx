@@ -38,7 +38,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <MdEmojiEvents className="h-5 w-5" />
                     </ListItemPrefix>
-                    Clubs
+                    Departments
                   </ListItem>
                 </Link>
                 <Link to='/admin/events'>
@@ -46,7 +46,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <MdOutlineEmojiEvents className="h-5 w-5" />
                     </ListItemPrefix>
-                    Events
+                    Companies
                   </ListItem>
                 </Link>
                 <Link to='/admin/registers'>
@@ -54,7 +54,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <ImEnter className="h-5 w-5" />
                     </ListItemPrefix>
-                    Club Registrations
+                    Department Registrations
                     <ListItemSuffix>
                       <Chip value={clubs.length} size="sm" variant="ghost" color="white" className="rounded-full" />
                     </ListItemSuffix>
@@ -81,7 +81,7 @@ function Sidebar() {
                   <ListItemPrefix>
                       <GiHomeGarage className="h-5 w-5" />
                   </ListItemPrefix>
-                  Add Club
+                  Add Department
                 </ListItem>
                 </Link>
                 <Link to='/admin/addEvent'>
@@ -89,7 +89,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <MdEvent className="h-5 w-5" />
                     </ListItemPrefix>
-                    Add Event
+                    Add Company
                   </ListItem>
                 </Link>
               
@@ -118,7 +118,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <MdEmojiEvents className="h-5 w-5" />
                     </ListItemPrefix>
-                    Clubs
+                    Departments
                   </ListItem>
                 </Link>
                 <Link to='/admin/events'>
@@ -126,7 +126,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <MdOutlineEmojiEvents className="h-5 w-5" />
                     </ListItemPrefix>
-                    Events
+                    Companies
                   </ListItem>
                 </Link>
                 <Link to='/admin/registers'>
@@ -161,7 +161,7 @@ function Sidebar() {
                   <ListItemPrefix>
                       <GiHomeGarage className="h-5 w-5" />
                   </ListItemPrefix>
-                  Add Club
+                  Add Department
                 </ListItem>
                 </Link>
                 <Link to='/admin/addEvent'>
@@ -169,7 +169,7 @@ function Sidebar() {
                     <ListItemPrefix>
                         <MdEvent className="h-5 w-5" />
                     </ListItemPrefix>
-                    Add Event
+                    Add Company
                   </ListItem>
                 </Link>
 

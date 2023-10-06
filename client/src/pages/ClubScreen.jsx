@@ -244,7 +244,7 @@ function ClubScreen() {
 
                 </div>
                 <Typography variant="h4" color="blue-gray" className="mb-2">
-                    One of the famous club
+                    Welcome to ${name} Department
                 </Typography>
                 <Typography color="gray" className="font-normal mb-8">
                     {item.desc}

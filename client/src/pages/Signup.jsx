@@ -6,14 +6,16 @@ import { Link } from 'react-router-dom';
 import { Button, Input, Typography } from '@material-tailwind/react';
 function Signup() {
     const[data,setData]=useState({
-        name:"",
+        firstname:"",
+        lastname:"",
         email:"",
         password:"",
         image:null,
+        birth:new Date(),
         branch:"",
         year:0,
-        section:"",
-        rollno:"",
+        category:"Student",
+        mobileno:0,
         admin:false,
     });
     const dispatch = useDispatch();
@@ -43,7 +45,8 @@ function Signup() {
                     Sign Up
                 </Typography>            
                 <form onSubmit={handleSignup} className='flex flex-col md:py-0 my-3 gap-6 sm:px-10 sm:mx-5 mx-10 px-0'>
-                    <Input size="lg" label="Name" name="name" value={data.name}onChange={handleChange}/>
+                    <Input size="lg" label="First Name" name="firstname" value={data.firstname}onChange={handleChange}/>
+                    <Input size="lg" label="Last Name" name="lastname" value={data.lastname}onChange={handleChange}/>
                     <Input size="lg" label="Email" name="email" value={data.email} onChange={handleChange}/>
                     <Input type="password" size="lg" label="Password" value={data.password} name="password" onChange={handleChange}/>
                     <Input className='outline-none'type='file'onChange={handleFile} />
@@ -59,36 +62,14 @@ function Signup() {
                             <option value="EEE">EEE</option>
                             <option value="CIVIL">CIVIL</option>
                             <option value="MECH">MECH</option>
+                            <option value="SPECIALIZATIONS">SPECIALIZATIONS</option>
                         </select>
                     </div>
-                    <div className='flex gap-14'>
-                        <Typography htmlFor="yearselect">Year</Typography>
-                        <select id="yearselect"  name="year" onChange={handleChange} value={data.year}className="border-2 px-5 py-1">
-                            <option value="0" disabled>
-                            select Year
-                            </option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </div>
-                    <div className='flex gap-14 '>
-                        <Typography htmlFor="sectionselect">Section</Typography>
-                        <select id="sectionselect" name="section"  onChange={handleChange} value={data.section} className="border-2 px-5 py-1">
-                            <option value="" disabled>
-                            select Section
-                            </option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                        </select><br/>
-                    </div>
+                    <Input type="number" size="lg" label="Passout Year" value={data.year} name="year" onChange={handleChange}/>
+                    <Input type="date" size="lg" label="Date Of Birth" value={data.birth} name="birth" onChange={handleChange}/>
 
                     <div>
-                        <Input type="text" label="RollNo"name="rollno" onChange={handleChange} value={data.rollno}/>
+                        <Input type="tel" label="MobileNo"name="mobileno" onChange={handleChange} value={data.mobileno}/>
                     </div>
                     <Button onClick={handleSignup} color='brown'>SignUp</Button>
                     <Typography className='mb-5'>Already have an account <Link className='font-semibold' to='/login'>Login</Link></Typography>

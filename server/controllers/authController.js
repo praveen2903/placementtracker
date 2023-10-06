@@ -68,7 +68,8 @@ const login=(expressAsyncHandler(async(req,res)=>{
     
 }));
 const signup=(expressAsyncHandler(async(req,res)=>{
-    const{category,name,email,password,branch,year,section,rollno,admin}=req.body;
+    const{category,firstname,lastname,email,password,year,birth,branch,mobileno,admin}=req.body;
+    console.log(category,firstname,lastname,email,password,year,birth,branch,mobileno,admin);
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
@@ -76,18 +77,19 @@ const signup=(expressAsyncHandler(async(req,res)=>{
 
     const newUser=new User({
      category:category,
-     username:name,
+     firstName:firstname,
+     lastName:lastname,
      email:email,
      password:bcrypt.hashSync(password),
      branch:branch,
      year:year,
-     section:section,
-     rollno:rollno,
+     birth:birth,
+     mobile:mobileno,
      isAdmin:admin,
     });
     if(req.file){
-        await uploadImage(req.file);
-        newUser.image = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/profile-images/${newUser._id}/${req.file.originalname}`;
+        await uploadImage("users",req.file);
+        newUser.image = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/users/${req.file.originalname}`;
     }
     const token=generateToken(newUser);
     const user=await newUser.save();

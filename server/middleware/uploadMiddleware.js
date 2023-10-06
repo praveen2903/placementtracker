@@ -12,13 +12,13 @@ const s3Client = new S3Client({
 
 const uploadImage=async (folderName,file) => {
     try {
-      const contentType = file.mimetype;
+      const ContentType = file.mimetype;
   
       const command =new PutObjectCommand({
         Bucket: process.env.AWS_BUCKET_NAME,
         Key:`${folderName}/${file.originalname}`,
         Body: file.buffer,
-        ContentType: contentType,
+        ContentType: ContentType,
       });
   
       const response = await s3Client.send(command);

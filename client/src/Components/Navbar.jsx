@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import small from '../Images/logo-small.jpg';
+import small from '../Images/placement.png';
 import {TiThMenu} from 'react-icons/ti'
 import {FcAbout,FcHome, FcSearch} from 'react-icons/fc'
 import {BsSearchHeart} from 'react-icons/bs'

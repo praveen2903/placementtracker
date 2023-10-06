@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
-const clubRegisterModel=new mongoose.Schema({
-    club:{type:String,required:true},
+const departmentModel=new mongoose.Schema({
+    department:{type:String,required:true},
     category:{type:String,required:true},
     name:{type:String,required:true},
     userimage:{type:String},
@@ -11,5 +11,5 @@ const clubRegisterModel=new mongoose.Schema({
 },{
     timestamps:true,
 });
-const ClubRegister=mongoose.model('ClubRegister',clubRegisterModel);
-module.exports=ClubRegister;
+const DepartmentRegister=mongoose.model('DepartmentRegister',departmentModel);
+module.exports=DepartmentRegister;
