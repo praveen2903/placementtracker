@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #454241;
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(1.2); /* Normal size */
+  }
+  50% {
+    transform: scale(1); /* Zoom-in effect */
+  }
+}
+.zoom-in-out {
+  animation: zoomInOut 10s ease-in-out infinite; /* Adjust the animation duration as needed */
+}
+.custom-arrow {
+  background-color: #efe9e9;
+  color: #333;
+  font-size: 20px;
+}
+::-webkit-scrollbar{
+  width: 0px;
+} 
