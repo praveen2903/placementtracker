@@ -92,8 +92,6 @@ function Sidebar() {
                     Add Company
                   </ListItem>
                 </Link>
-              
-                
               </List>
               </Card>
          </div>
