@@ -65,9 +65,9 @@ function Brand() {
                     </PopoverHandler> */}
                     <div className="w-[24rem] px-5 py-5 overflow-y-auto lg:flex z-10 hidden">
                         <div className="p-4">
-                        <Typography color="blue-gray" className="font-medium mb-2">Job Portal</Typography>
-                        <Typography variant="small" color="gray" className="font-normal mb-4">
-                            Material Tailwind is an easy to use components library for Tailwind CSS and Material Design. 
+                        <Typography color="blue-gray" className="font-semibold mb-2 text-xl">Job Portal</Typography>
+                        <Typography variant="small" color="gray" className="font-normal mb-4 justify-content">
+                            Wide range of opportunities, job alerts and user friendly interface benifits students to look up the jobs they are needed.
                         </Typography>
                         <Link to="/calender" className="inline-block">
                             <Button size="sm" variant="text" className="flex items-center gap-1 capitalize">
