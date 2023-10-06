@@ -24,7 +24,7 @@ function Spliders() {
         <h1 className='font-bold text-4xl  '>Welcome</h1>
         <div className='flex flex-col'>
           <p className="w-full px-11 lg:leading-loose">
-            To achieve a zoom-in and zoom-out effect on the background image like a movie shot, you can use CSS animations and keyframes. Here's how you can modify the Brand component to achieve this effect:Here's how you can modify the Brand component to achieve this effect:<p className={`${showMore ? 'block' : 'hidden'}`}>Here's how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:</p>
+            To achieve a zoom-in and zoom-out effect on the background image like a movie shot, you can use CSS animations and keyframes. Here&apos;s how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:<p className={`${showMore ? 'block' : 'hidden'}`}>Here&apos;s how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:Here&apos;s how you can modify the Brand component to achieve this effect:</p>
           </p>
           <button onClick={toggleShowMore} className='text-blue-300 font-bold text-sm hover:bg-blue-gray-300 w-fit mx-auto p-1 rounded-lg mt-2'>
             {showMore ? 'Read Less' : 'Read More'}
