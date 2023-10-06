@@ -59,11 +59,11 @@ function Brand() {
                 initial={{scale:0}}
                 whileInView={{scale:1}}
                 transition={{duration:0.7}}>
-                <div className='bg-white'>
+                <div className='bg-white rounded-lg'>
                     {/* <PopoverHandler >
                         <Button className=''color='white'>Basic Info</Button>
                     </PopoverHandler> */}
-                    <div className="w-[24rem] p-0 overflow-y-auto lg:flex z-10 hidden">
+                    <div className="w-[24rem] px-5 py-5 overflow-y-auto lg:flex z-10 hidden">
                         <div className="p-4">
                         <Typography color="blue-gray" className="font-medium mb-2">Job Portal</Typography>
                         <Typography variant="small" color="gray" className="font-normal mb-4">
@@ -78,7 +78,7 @@ function Brand() {
                         <img 
                         src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbSUyMGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
                         alt="image"
-                        className="w-1/2 h-full object-cover"
+                        className="w-1/2 rounded-lg h-full object-cover"
                         />
                     </div>
                 </div>
@@ -88,7 +88,7 @@ function Brand() {
               <input className='bg-transparent w-full outline-none text-white  ' placeholder='Company...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
               <FcSearch className='cursor-pointer' color='white' size={35} onClick={handleSearch}/>
             </div>
-            <span className='font-bold sm:text-2xl lg:text-4xl font-serif text-black relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10 bg-white'>
+            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-black relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10 bg-white rounded-lg p-2'>
                   {/* Style will be inherited from the parent element */}
                   
                   <Typewriter
@@ -99,7 +99,7 @@ function Brand() {
                     delaySpeed={1000}
                 />
                 <br />
-                <h1>WELCOME</h1>
+                <h1 className='p-2 text-xl'>WELCOME TO JOB PORTAL</h1>
                 </span>
         </Card>
         <div className='fixed lg:top-3/4 sm:top-80 right-8 z-50'>
