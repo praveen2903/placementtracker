@@ -6,6 +6,7 @@ const userSchema=new mongoose.Schema(
         category:{type:String,default:"Student"},
         firstName:{type:String},
         lastName:{type:String},
+        rollno:{type:String,required:true,unique:true},
         email: {
             type: String,
             required: [true, "Email is required"],

@@ -58,12 +58,12 @@ function Club() {
                     </div>
                    <div className='flex flex-col gap-6'>
                         {clubname ?  <Typography variant="h4" color="blue-gray">
-                            Update Club
+                            Update Department
                         </Typography>: <Typography variant="h4" color="blue-gray">
-                            Add Club
+                            Add Department
                         </Typography>}
-                        <Input color="brown" className='' label='Club Name' type='text' value={clubdata?.name} onChange={(e)=>setClubdata({...clubdata,["name"] : e.target.value.toUpperCase()})}/>
-                        <Textarea color="brown"label="Club Description" type='text' value={clubdata?.desc} onChange={(e)=>setClubdata({...clubdata,["desc"] : e.target.value})} />
+                        <Input color="brown" className='' label='Department Name' type='text' value={clubdata?.name} onChange={(e)=>setClubdata({...clubdata,["name"] : e.target.value.toUpperCase()})}/>
+                        <Textarea color="brown"label="Department Description" type='text' value={clubdata?.desc} onChange={(e)=>setClubdata({...clubdata,["desc"] : e.target.value})} />
                         <Button color="brown" type='submit'>Submit</Button>
                    </div>
                 </form>

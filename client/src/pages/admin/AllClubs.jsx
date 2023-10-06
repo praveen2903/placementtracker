@@ -65,10 +65,10 @@ function AllClubs() {
             <div className="mb-8 flex items-center justify-between gap-8 flex-col sm:flex-row">
               <div >
                 <Typography variant="h5" color="brown-gray">
-                  Clubs List
+                  Department List
                 </Typography>
                 <Typography color="gray" className="mt-1 font-normal" >
-                  See Information about all clubs.
+                  See Information about all Departments.
                 </Typography>
               </div>
               <div className="flex flex-row gap-2 shrink-0">
@@ -79,7 +79,7 @@ function AllClubs() {
                   <Link to='/admin/addClub'>
                     <div  className="flex gap-2">
                       <BiSolidAddToQueue/>
-                      Add Club
+                      Add Department
                     </div>
                   </Link>
                 </Button>

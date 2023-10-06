@@ -62,8 +62,7 @@ function ClubScreen() {
     const registers= useSelector((state) => state.register.registers);
     const clubregisters= useSelector((state) => state.clubs.clubregisters);
     const events= useSelector((state) => state.events.events);
-   
-    //fetch event data
+    
     useEffect(()=>{
         const fetchData=async()=>{
             console.log("user",userInfo);
@@ -167,9 +166,9 @@ function ClubScreen() {
         const club=clubname;
         const event=eventname;
         if(userInfo){
-            const{category,username,image,branch,year,section,rollno}=userInfo;
+            const{category,firstName,image,branch,year,section,rollno}=userInfo;
             try{
-                const res1=await dispatch(addRegister({club,event,category,username,image,branch,year,section,rollno}));
+                const res1=await dispatch(addRegister({club,event,category,firstName,image,branch,year,section,rollno}));
                 await dispatch(getRegisters());
                 console.log(res1.payload);
                 setRegisterInfo(res1.payload);
@@ -234,7 +233,7 @@ function ClubScreen() {
                 <img 
                     src={item.image} 
                     alt="image" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-fill"
                 />
                 </CardHeader>
                 <CardBody>
@@ -244,7 +243,7 @@ function ClubScreen() {
 
                 </div>
                 <Typography variant="h4" color="blue-gray" className="mb-2">
-                    Welcome to ${name} Department
+                    Welcome to {name} Department
                 </Typography>
                 <Typography color="gray" className="font-normal mb-8">
                     {item.desc}
@@ -268,48 +267,22 @@ function ClubScreen() {
         <Slider {...settings} className='mx-8 mb-10'>
         {events.filter((item)=>item.clubname===name).map((event,index)=>(
             <div key={index} className=' mt-16 '>
-                <Card
-                    shadow={false}
-                    className="relative grid md:h-[40rem] h-full w-full max-w-[28rem] sm:max-w-full items-end justify-center overflow-hidden text-center"
-                    >
-                    <CardHeader
-                        floated={false}
-                        shadow={false}
-                        color="transparent"
-                        className={`absolute inset-0 m-0 h-full w-full rounded-none bg-cover bg-center`}
-                        style={{ backgroundImage: `url('${event.eventimage}')` }}                    >
-                        <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/100 via-black/70" />
-                    </CardHeader>
-                    <CardBody className="relative  px-6 md:px-12">
-                        {userInfo && <Typography
-                        variant="h2"
-                        color="white"
-                        className="mb-3 font-bold leading-[1.5] text-sm lg:text-4xl"
-                        >
-                        Hey {userInfo.username}
-                        </Typography>}
-                        <Typography
-                        variant="h2"
-                        color="white"
-                        className="mb-3 font-bold lg:text-5xl leading-[1.5] text-white text-sm"
-                        >
-                        Be the face of VVIT Clubs
-                        </Typography>
-                        <Typography variant="h5" className="mb-4 text-white text-sm lg:text-3xl">
-                        {event.eventname} Event
-                        </Typography>
-                        {(registerInfo && registerInfo.club && registerInfo.event===event.eventname) ? <button className='bg-red-500 md:px-8 px-2 lg:py-2 text-white h-fit mt-10 ' onClick={()=>handleDeleteregister(registerInfo.roll)}>UnRegister</button>
+                <Card className='shadow-xl grid grid-cols-1 lg:grid-cols-2  mx-20 py-20'>
+                    <div className=' flex items-center justify-center flex-col '>
+                      <img src={event.eventimage} alt='company' className=' rounded-lg '/>
+                      {(registerInfo && registerInfo.club && registerInfo.event===event.eventname) ? <button className='bg-red-500 md:px-8 px-2 lg:py-2 text-white h-fit mt-10 ' onClick={()=>handleDeleteregister(registerInfo.roll)}>UnRegister</button>
                         : <button className='bg-green-500 md:px-8 px-2 lg:py-2 text-white h-fit mt-10 lg:font-bold 'onClick={()=>handleRegister(event.clubname,event.eventname)}>Register</button>}
-                        <Typography
-                        variant="h5"
-                        color="white"
-                        className="pt-5 pb-8 leading-[1.5] text-gray-400 text-sm lg:text-xl"
-                        >
-                        {event.description}<br/>
-                        
-                        {moment(event.eventdate).format("YYYY-MM-DD HH:mm:ss")}
-                        </Typography>
-                    </CardBody>
+                    </div>
+                    <div className='flex flex-col gap-3 px-10'>
+                      <h1 className='font-bold text-lg'>Hey {userInfo.firstName}</h1>
+                      <h1 className='font-bold'>Company: {event.eventname}</h1>
+                      <div >
+                        <h1 className='font-bold mb-2'>Job Description:</h1>
+                        <h1 className='leading-loose mb-2'>{event.description}</h1>
+                        <h1 className='font-bold mb-2'>DeadLine: {moment(event.eventdate).format("YYYY-MM-DD")}</h1>
+                        <h1 className='font-bold'>CGPA {event.cgpa}</h1>
+                      </div>
+                    </div>
                 </Card>
             </div>)
         )}

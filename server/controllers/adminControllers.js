@@ -22,13 +22,14 @@ const getDetails=async(req,res)=>{
 
 const addEvent=(expressAsyncHandler(async(req,res)=>{
     // const correctdate = moment(req.body.eventdate).utc().toDate(); it is when I am in localhost
-    const correctdate =event.eventDate.subtract(5, 'hour').toDate();;
-    console.log("correctdate",correctdate);
+    // const correctdate =event.eventDate.subtract(5, 'hour').toDate();;
     const events=new Event({
         clubname:req.body.club,
         eventname:req.body.name,
-        eventdate:correctdate,  
+        eventdate:req.body.eventdate,  
         description:req.body.desc,
+        cgpa:req.body.cgpa,
+        companyurl:req.body.companyurl,
     });
     if (req.file) {
         // Uploading the profile image to AWS S3

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import small from '../Images/placement.png';
+import small from '../Images/navlogo.jpeg';
 import {TiThMenu} from 'react-icons/ti'
 import {FcAbout,FcHome, FcSearch} from 'react-icons/fc'
 // import {BsSearchHeart} from 'react-icons/bs'
@@ -62,7 +62,7 @@ function Navbar() {
             initial={{scale:0}}
             whileInView={{scale:1}}
             transition={{duration:0.7}}>
-              <Route to="/"><img className='sm:w-15 sm:h-10 w-14 h-10 xl:h-14 xl:w-20  cursor-pointer'src={small} alt='logo'/></Route>
+              <Route to="/"><img className='sm:w-15 sm:h-12 w-16 rounded-sm h-10 xl:h-14 xl:w-20  cursor-pointer'src={small} alt='logo'/></Route>
             </motion.div>
             
         </div>

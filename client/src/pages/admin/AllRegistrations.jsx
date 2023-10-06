@@ -109,7 +109,7 @@ function AllRegistrations() {
   return (
     <div>
       <Sidebar/>
-      <div className="lg:pt-5 lg:pl-72 pt-5">
+      <div className="lg:pt-5 lg:pl-80 pt-5">
             <div>
                 <CardHeader floated={false} shadow={false} className="rounded-none">
                     <div className="mb-8 flex items-center justify-between gap-8 sm:flex-row flex-col">

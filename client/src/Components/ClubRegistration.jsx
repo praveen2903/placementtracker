@@ -7,7 +7,7 @@ import { clubRegister } from '../redux/clubSlice';
 function ClubRegistration({value,club}) {
   const userInfo = useSelector((state) => state.auth.userInfo);
   const dispatch=useDispatch();
-  const[data,setData]=useState({clubname:club,category:userInfo.category,username:userInfo.username,year:userInfo.year,branch:userInfo.branch,rollno:userInfo.rollno,section:userInfo.section,image:userInfo.image})
+  const[data,setData]=useState({clubname:club,category:userInfo.category,username:userInfo.firstName,year:userInfo.year,branch:userInfo.branch,rollno:userInfo.rollno,image:userInfo.image})
   const handleRegister=()=>{
     dispatch(clubRegister({data}));
     value();
@@ -24,11 +24,11 @@ function ClubRegistration({value,club}) {
         <CardBody>
           <div className='grid sm:grid-cols-2 xl:grid-cols-1 sm:pt-10 pt-3 sm:gap-5 gap-3 grid-cols-1'>
             <Input label='club' size='md' value={club} readOnly/>
-            <Input label='name' size='md' value={userInfo.username} readOnly/>
-            <Input label='year' size='md' value={userInfo.year} readOnly/>
-            <Input label='branch' size='md' value={userInfo.branch} readOnly/>
-            <Input label='roll no' size='md' value={userInfo.rollno} readOnly/>
-            <Input label='section' size='md' value={userInfo.section} readOnly/>
+            <Input label='full name' size='md' value={userInfo.firstName+" "+userInfo.lastName} readOnly/>
+            <Input label='passed out year' size='md' value={userInfo.year} readOnly/>
+            <Input label='Department' size='md' value={userInfo.branch} readOnly/>
+            <Input label='Mobile No' size='md' value={userInfo.mobile} readOnly/>
+            
           </div>
         </CardBody>
         <CardFooter>

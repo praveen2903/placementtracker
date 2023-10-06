@@ -8,6 +8,7 @@ function Signup() {
     const[data,setData]=useState({
         firstname:"",
         lastname:"",
+        rollno:"",
         email:"",
         password:"",
         image:null,
@@ -47,6 +48,7 @@ function Signup() {
                 <form onSubmit={handleSignup} className='flex flex-col md:py-0 my-3 gap-6 sm:px-10 sm:mx-5 mx-10 px-0'>
                     <Input size="lg" label="First Name" name="firstname" value={data.firstname}onChange={handleChange}/>
                     <Input size="lg" label="Last Name" name="lastname" value={data.lastname}onChange={handleChange}/>
+                    <Input size="lg" label="Roll No" name="rollno" value={data.rollno}onChange={handleChange}/>
                     <Input size="lg" label="Email" name="email" value={data.email} onChange={handleChange}/>
                     <Input type="password" size="lg" label="Password" value={data.password} name="password" onChange={handleChange}/>
                     <Input className='outline-none'type='file'onChange={handleFile} />

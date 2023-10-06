@@ -68,8 +68,7 @@ const login=(expressAsyncHandler(async(req,res)=>{
     
 }));
 const signup=(expressAsyncHandler(async(req,res)=>{
-    const{category,firstname,lastname,email,password,year,birth,branch,mobileno,admin}=req.body;
-    console.log(category,firstname,lastname,email,password,year,birth,branch,mobileno,admin);
+    const{category,firstname,lastname,email,password,year,birth,branch,mobileno,admin,rollno}=req.body;
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
@@ -79,6 +78,7 @@ const signup=(expressAsyncHandler(async(req,res)=>{
      category:category,
      firstName:firstname,
      lastName:lastname,
+     rollno:rollno,
      email:email,
      password:bcrypt.hashSync(password),
      branch:branch,

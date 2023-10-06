@@ -4,7 +4,7 @@ const expressAsyncHandler = require('express-async-handler');
 const Register = require('../models/registerModel');
 const User = require('../models/userModel');
 const { StatusCodes } = require('http-status-codes');
-const ClubRegister = require('../models/clubRegisterModel');
+const DepartmentRegister = require('../models/clubRegisterModel');
 
 const getClubevents=async(req,res)=>{
     const event=await Event.find({});
@@ -51,7 +51,7 @@ const eventRegistration=(expressAsyncHandler(async(req,res)=>{
             res.json({ error:true,message: `You already registered for ${rollnum.event} event` });
             return;
             }
-            const reg=await ClubRegister.findOne({roll:rollno,club:club});
+            const reg=await DepartmentRegister.findOne({roll:rollno,club:club});
             if(!reg){
                 res.json({error:true,message:`You need to register for ${club} club`});
                 return;
