@@ -37,7 +37,7 @@ const updateWinner=async(req,res)=>{
         }
         const newOne=await Register.findOneAndUpdate({roll:rollno},{isWinner:req.body.isWinner},{new:true});
         const user=await User.findOne({rollno:rollno});
-        const message=`http://localhost:5173/placedverify`;
+        const message=`https://placement-hub-six.vercel.app/placedverify`;
 
         await sendMail(user.email,`Please upload your offer letter In the Placement Hub Portal with this url ${message} by login into the portal`);
         console.log(newOne);

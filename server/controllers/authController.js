@@ -48,7 +48,7 @@ const forgotPassword=(expressAsyncHandler(async(req,res)=>{
         return res.status(StatusCodes.NOT_FOUND).json({message:"User Not Exist"});
     }    
     const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:"1d"})
-    const message=`http://localhost:5173/reset-password/${user._id}/${token}`;
+    const message=`https://placement-hub-six.vercel.app/reset-password/${user._id}/${token}`;
     await sendMail(user.email,message);
     return res.status(StatusCodes.OK).json({message:"mail sent succesfully"});
 }));
