@@ -76,15 +76,15 @@ function Login(props) {
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
               Don&apos;t have an account?
+              <Link to="/signup">              
               <Typography
-                as="a"
-                href="/signup"
                 variant="small"
                 color="brown"
                 className="ml-1 font-bold"
               >
                 Sign up
               </Typography>
+              </Link>
             </Typography>
           </CardFooter>
         </Card>
