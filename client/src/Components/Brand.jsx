@@ -85,11 +85,11 @@ function Brand() {
                 </div>
                 </motion.div>
             </CardBody>
-            <div className='flex items-center gap-2 relative bottom-20 lg:bottom-80 mx-auto h-fit lg:hidden  w-fit border-b-2 border-white'>
+            <div className='flex items-center gap-2 relative bottom-10 lg:bottom-80 mx-auto h-fit lg:hidden  w-fit border-b-2 border-white'>
               <input className='bg-transparent w-full outline-none text-white  ' placeholder='Company...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
               <FcSearch className='cursor-pointer' color='white' size={35} onClick={handleSearch}/>
             </div>
-            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-white relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10  bg-white lg:bg-transparent lg:backdrop-blur-md rounded-lg p-2'>
+            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-white relative bottom-20 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10   lg:bg-transparent lg:backdrop-blur-md rounded-lg p-2'>
                   {/* Style will be inherited from the parent element */}
                   
                   <Typewriter
@@ -112,7 +112,7 @@ function Brand() {
           </SpeedDialHandler>
           <SpeedDialContent >
             {userInfo && (userInfo.isAdmin || userInfo.category==="Coordinator") && <SpeedDialAction >
-              <Link to='/chat' ><BsChatTextFill className="h-5 w-5"  /></Link>
+              <BsChatTextFill className="h-5 w-5"  />
             </SpeedDialAction>}
             <SpeedDialAction>
             <AudioComponent isMuted={isMuted} />

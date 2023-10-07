@@ -27,39 +27,6 @@ const upload = multer({
 app.use(cors());
 app.use(express.json());
 //socket server
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "*",
-    credentials: true,
-  },
-});
-io.on("connection", (socket) => {
-  console.log("A new user has connected", socket.id);
-
-  // Listen for incoming messages from clients
-  socket.on("message", async(newMessage) => {
-    // Broadcast the message to all connected clients
-    const chats=await Chat.find({});
-    if(chats.length>100){
-      await Chat.deleteMany({});
-    }
-    const result=new Chat({
-      user:newMessage.user,
-      text:newMessage.text,
-      likes:newMessage.likes,
-      image:newMessage.image,
-      date:newMessage.date,
-    });
-    await result.save();
-    io.emit("message", newMessage);
-  });
-
-  // Handle disconnections
-  socket.on("disconnect", () => {
-    console.log(socket.id, " disconnected");
-  });
-});
 
 
 
@@ -82,7 +49,7 @@ const port = process.env.PORT || 5000;
 const start = async () => {
   try {
     await connectDB();
-    server.listen(port, () => {
+    app.listen(port, () => {
       console.log(`Server listening on port ${port}`);
     });
   } catch (error) {

@@ -21,7 +21,6 @@ import Reviews from './pages/admin/Reviews';
 // import AddTestimony from './pages/admin/AddTestimony';
 import PasswordRequest from './pages/PasswordRequest';
 import ResetPassword from './pages/ResetPassword';
-import Chat from './Components/Chat';
 import Calender from './Components/Calender';
 import PlacementResults from './Components/PlacementResults';
 // import { Dialog } from '@material-tailwind/react';
@@ -37,7 +36,6 @@ function App() {
         <Route path="/admin?/clubs?/events?/:name" element={<ClubScreen/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/chat" element={<Chat/>}/>
         <Route path="/passwordrequest" element={<PasswordRequest/>}/>
         <Route path="/reset-password/:id/:token" element={<ResetPassword/>}/>
         <Route path="/profile" element={<Profile/>}/>
