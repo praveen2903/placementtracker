@@ -80,6 +80,7 @@ function Login(props) {
               <Typography
                 variant="small"
                 color="brown"
+                onClick={value}
                 className="ml-1 font-bold"
               >
                 Sign up
