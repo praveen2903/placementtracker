@@ -33,7 +33,7 @@ function Spliders() {
       </div>
       </motion.div>
 
-      <div className="md:block cursor-pointer lg:mx-24 mx-12  flex items-center justify-center ">
+      <div className="md:block cursor-pointer lg:mx-24 mx-8  flex items-center justify-center ">
         <Splide
           options={{
             rewind: true,
@@ -49,7 +49,7 @@ function Spliders() {
           {images.map((image, index) => {
             return (
               <SplideSlide key={index} className=''>
-                <img className='object-cover rounded h-96 w-full ' src={image} alt="Banner" />
+                <img className='object-fit rounded h-72 lg:h-96 w-full ' src={image} alt="Banner" />
               </SplideSlide>
             );
           })}

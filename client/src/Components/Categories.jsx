@@ -86,7 +86,7 @@ function Categories() {
                 return (
                   <div key={index} >
                           <div key={index} onClick={()=>checkLogin(product.name)} className='m-0 sm:m-5 shadow-xl pb-4  bg-white hover:scale-105 transition-all duration-500'>
-                            <img src={product.image} className=' cursor-pointer w-full h-60 object-cover  rounded-t-lg mb-10' alt='event'/>
+                            <img src={product.image} className=' cursor-pointer w-full h-60 object-fit   rounded-t-lg mb-10' alt='event'/>
                               <div className='flex justify-between items-center'>
                                 <h1 className='font-bold ml-4'>{product.name}</h1>
                                 <Button onClick={()=>checkLogin(product.name)} className='bg-[#8d6e63] text-white py-2 px-2 mr-4 rounded-md'>Know More&gt;&gt;</Button>
