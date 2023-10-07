@@ -16,8 +16,8 @@ userRoutes.get('/:rollno',async(req,res)=>{
 });
 const profile=(expressAsyncHandler(async(req,res)=>{
     const {id}=req.body;
-    const{name,email,branch,rollno,section,year}=req.body;
-    const newOne=await User.findByIdAndUpdate(id,{username:name,email:email,branch:branch,rollno:rollno,section:section,year:year});
+    const{name,email,branch,rollno,mobile,year}=req.body;
+    const newOne=await User.findByIdAndUpdate(id,{firstName:name,email:email,branch:branch,rollno:rollno,mobile:mobile,year:year});
     if(req.file){
         await uploadImage("profiles",req.file);
         newOne.image= `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/profiles/${req.file.originalname}`;

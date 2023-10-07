@@ -157,7 +157,7 @@ const deleteClub=async(req,res)=>{
 //     }return res.status(StatusCodes.BAD_REQUEST).json({message:"User Not regisered"});
 // }))
 const addAdmin=(expressAsyncHandler(async(req,res)=>{
-    const{category,name,email,password,branch,year,section,rollno,admin}=req.body;
+    const{category,firstname,lastname,email,password,year,birth,branch,mobileno,admin,rollno}=req.body;
     console.log("admin",admin);
     const existingUser=await User.findOne({email})
     if(existingUser){
@@ -165,22 +165,25 @@ const addAdmin=(expressAsyncHandler(async(req,res)=>{
         console.log(updateUser);
         return res.status(StatusCodes.OK).json({message:"Existing user updated as admin"});
     }
-    const newAdmin=new User({
+    const newUser=new User({
         category:category,
-        username:name,
+        firstName:firstname,
+        lastName:lastname,
+        rollno:rollno,
         email:email,
         password:bcrypt.hashSync(password),
         branch:branch,
         year:year,
-        section:section,
-        rollno:rollno,
+        birth:birth,
+        mobile:mobileno,
         isAdmin:admin,
-    }) ;
-    if(req.file){
-        await uploadImage(req.file);
-        newUser.image = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/profile-images/${newUser._id}/${req.file.originalname}`;
-    }
-    const user=await newAdmin.save();
-    return res.status(StatusCodes.CREATED).json({message:"admin added succesfully"});
+       });
+       if(req.file){
+           await uploadImage("users",req.file);
+           newUser.image = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/users/${req.file.originalname}`;
+       }
+       const token=generateToken(newUser);
+       const user=await newUser.save();
+        return res.status(StatusCodes.CREATED).json({message:"admin added succesfully"});
 }))
 module.exports={getDetails,addEvent,addClub,addAdmin,updateClub,updateEvent,deleteClub,deleteEvent,addTestimony};

@@ -1,5 +1,5 @@
 import {useDispatch, useSelector } from "react-redux";
-import { Button } from "@material-tailwind/react";
+import { Button, Input } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import thumps from '../Images/thumbs-up.png';
@@ -9,13 +9,13 @@ function Profile() {
   const userInfo = useSelector((state) => state.auth.userInfo);
    const[edit,setEdit]=useState(false);
    const dispatch=useDispatch();
-   const[profiledata,setProfiledata]=useState({id:"",image:null,name:"",email:"",branch:"",rollno:"",section:"",year:0});
+   const[profiledata,setProfiledata]=useState({id:"",image:null,name:"",email:"",branch:"",mobile:0,rollno:"",section:"",year:0});
    const handleFileChange=(e)=>{
     setProfiledata({...profiledata,["image"]:e.target.files[0]});
     toast.success("Image uploaded succesfully");
    }
    useEffect(()=>{
-    setProfiledata({id:userInfo._id,image:userInfo.image,name:userInfo.username,email:userInfo.email,branch:userInfo.branch,rollno:userInfo.rollno,section:userInfo.section,year:userInfo.year});
+    setProfiledata({id:userInfo._id,image:userInfo.image,name:userInfo.firstName,email:userInfo.email,branch:userInfo.branch,rollno:userInfo.rollno,mobile:userInfo.mobile,year:userInfo.year});
    },[userInfo])
    const handleUpdate=()=>{
     dispatch(updateRegister(profiledata));
@@ -51,25 +51,10 @@ function Profile() {
                 <option value="CIVIL">CIVIL</option>
                 <option value="MECH">MECH</option>
             </select></span>
-            <span className={`flex ${edit ? 'flex-col gap-2' : 'flex-row'}`}><p className="font-bold pr-2">Year</p>  <select id="yearselect" disabled={edit?false:true}  name="year" onChange={(e)=>setProfiledata({...profiledata,["year"]:e.target.value})} value={profiledata?.year}className={`${edit?'border-2 border-black':'border-none'} px-2 py-1`}>
-                              <option value="0" disabled>
-                              select Year
-                              </option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                          </select></span>
-            <span className={`flex ${edit ? 'flex-col gap-2' : 'flex-row'}`}><p className="font-bold pr-2">Section</p><select id="sectionselect" disabled={edit?false:true} name="section"  onChange={(e)=>setProfiledata({...profiledata,["section"]:e.target.value})} value={profiledata?.section}className={`${edit?'border-2 border-black':'border-none'} px-2 py-1`}>
-                              <option value="" disabled>
-                              select Section
-                              </option>
-                              <option value="A">A</option>
-                              <option value="B">B</option>
-                              <option value="C">C</option>
-                              <option value="D">D</option>
-                              <option value="E">E</option>
-                          </select><br/></span>
+            <span className={`flex ${edit ? 'flex-col gap-2' : 'flex-row'}`}><p className="font-bold pr-2">Year</p>  <input type="number" id="yearselect" disabled={edit?false:true}  name="year" onChange={(e)=>setProfiledata({...profiledata,["year"]:e.target.value})} value={profiledata?.year}className={`${edit?'border-2 border-black':'border-none'} px-2 py-1`}/>
+                              </span>
+            <span className={`flex ${edit ? 'flex-col gap-2' : 'flex-row'}`}><p className="font-bold pr-2">Mobile</p>  <input type="tel" id="yearselect" disabled={edit?false:true}  name="mobile" onChange={(e)=>setProfiledata({...profiledata,["mobile"]:e.target.value})} value={profiledata?.mobile}className={`${edit?'border-2 border-black':'border-none'} px-2 py-1`}/>
+                              </span>
           </div>
         </div>
         <div className="flex justify-center ">

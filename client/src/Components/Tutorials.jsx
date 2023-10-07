@@ -50,7 +50,6 @@ function Tutorials({ value }) {
                   <source src={item.url} type="video/mp4"/>
                   Your browser does not support the video tag.
                 </video>
-                <p className='sm:px-16 lg:leading-loose'>{item.desc}</p>
               </div>
             </div>
           ))}

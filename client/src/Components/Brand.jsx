@@ -59,14 +59,14 @@ function Brand() {
                 initial={{scale:0}}
                 whileInView={{scale:1}}
                 transition={{duration:0.7}}>
-                <div className='bg-white rounded-lg'>
+                <div className='backdrop-blur-lg rounded-lg'>
                     {/* <PopoverHandler >
                         <Button className=''color='white'>Basic Info</Button>
                     </PopoverHandler> */}
                     <div className="w-[24rem] px-5 py-5 overflow-y-auto lg:flex z-10 hidden">
                         <div className="p-4">
-                        <Typography color="blue-gray" className="font-semibold mb-2 text-xl">Job Portal</Typography>
-                        <Typography variant="small" color="gray" className="font-normal mb-4 justify-content">
+                        <Typography color="white" className="font-semibold mb-2 text-xl">Job Portal</Typography>
+                        <Typography variant="small" color="white" className="font-normal mb-4 justify-content">
                             Wide range of opportunities, job alerts and user friendly interface benifits students to look up the jobs they are needed.
                         </Typography>
                         <Link to="/calender" className="inline-block">
@@ -88,7 +88,7 @@ function Brand() {
               <input className='bg-transparent w-full outline-none text-white  ' placeholder='Company...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
               <FcSearch className='cursor-pointer' color='white' size={35} onClick={handleSearch}/>
             </div>
-            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-black relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10 bg-white rounded-lg p-2'>
+            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-black relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10  bg-white lg:bg-transparent lg:backdrop-blur-md rounded-lg p-2'>
                   {/* Style will be inherited from the parent element */}
                   
                   <Typewriter

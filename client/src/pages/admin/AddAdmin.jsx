@@ -6,17 +6,19 @@ import { useNavigate } from "react-router-dom";
 import { addAdmin } from "../../redux/adminSlice";
 
 function AddAdmin() {
-  const[data,setData]=useState({
-    name:"",
-    email:"",
-    password:"",
-    image:null,
-    branch:"",
-    year:0,
-    section:"",
-    rollno:"",
-    admin:true,
-});
+    const[data,setData]=useState({
+        firstname:"",
+        lastname:"",
+        rollno:"",
+        email:"",
+        password:"",
+        image:null,
+        birth:new Date(),
+        branch:"",
+        category:"Student",
+        mobileno:0,
+        admin:true,
+    });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -47,56 +49,35 @@ function AddAdmin() {
                         </TabsHeader>  
                         <TabsBody>
                             <TabPanel value="new">
-                                <form onSubmit={handleAdmin} className='flex flex-col md:py-0 my-3 gap-6 sm:px-10 sm:mx-5 mx-10 px-0 w-96'>
-                                    <Input size="lg" label="Name" name="name" onChange={handleChange} value={data.name}/>
-                                    <Input size="lg" label="Email" name="email" onChange={handleChange} value={data.email}/>
-                                    <Input type="password" size="lg" label="Password" name="password" onChange={handleChange} value={data.password}/>
-                                    <Input className='outline-none'type='file'onChange={handleFile}/>
-                                    <div className='flex gap-14'>
-                                        <Typography htmlFor="branchselect">Branch</Typography>
-                                        <select id="branchselect"  name="branch" onChange={handleChange} value={data.branch} className="border-2 px-5 py-1">
-                                            <option value="" disabled>
-                                            select Branch
-                                            </option>
-                                            <option value="CSE">CSE</option>
-                                            <option value="ECE">ECE</option>
-                                            <option value="IT">IT</option>
-                                            <option value="EEE">EEE</option>
-                                            <option value="CIVIL">CIVIL</option>
-                                            <option value="MECH">MECH</option>
-                                        </select>
-                                    </div>
-                                    <div className='flex gap-14'>
-                                        <Typography htmlFor="yearselect">Year</Typography>
-                                        <select id="yearselect"  name="year" onChange={handleChange} value={data.year} className="border-2 px-5 py-1">
-                                            <option value="0" disabled>
-                                                select Year
-                                            </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                    </div>
-                                    <div className='flex gap-14 '>
-                                        <Typography htmlFor="sectionselect">Section</Typography>
-                                        <select id="sectionselect" name="section"  onChange={handleChange} value={data.section} className="border-2 px-5 py-1">
-                                            <option value="" disabled>
-                                            select Section
-                                            </option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                            <option value="C">C</option>
-                                            <option value="D">D</option>
-                                            <option value="E">E</option>
-                                        </select><br/>
-                                    </div>
+                            <form onSubmit={handleAdmin} className='flex flex-col md:py-0 my-3 gap-6 sm:px-10 sm:mx-5 mx-10 px-0'>
+                                <Input size="lg" label="First Name" name="firstname" value={data.firstname}onChange={handleChange}/>
+                                <Input size="lg" label="Last Name" name="lastname" value={data.lastname}onChange={handleChange}/>
+                                <Input size="lg" label="Roll No" name="rollno" value={data.rollno}onChange={handleChange}/>
+                                <Input size="lg" label="Email" name="email" value={data.email} onChange={handleChange}/>
+                                <Input type="password" size="lg" label="Password" value={data.password} name="password" onChange={handleChange}/>
+                                <Input className='outline-none'type='file'onChange={handleFile} />
+                                <div className='flex gap-14'>
+                                    <Typography htmlFor="branchselect">Branch</Typography>
+                                    <select id="branchselect"  name="branch" onChange={handleChange} value={data.branch}className="border-2 px-5 py-1">
+                                        <option value="" disabled>
+                                        select Branch
+                                        </option>
+                                        <option value="CSE">CSE</option>
+                                        <option value="ECE">ECE</option>
+                                        <option value="IT">IT</option>
+                                        <option value="EEE">EEE</option>
+                                        <option value="CIVIL">CIVIL</option>
+                                        <option value="MECH">MECH</option>
+                                        <option value="SPECIALIZATIONS">SPECIALIZATIONS</option>
+                                    </select>
+                                </div>
+                                <Input type="date" size="lg" label="Date Of Birth" value={data.birth} name="birth" onChange={handleChange}/>
 
-                                    <div>
-                                        <Input type="text" label="RollNo"name="rollno" onChange={handleChange} value={data.rollno}/>
-                                    </div>
-                                    <Button color='brown' onClick={handleAdmin}>Add Admin</Button>
-                                </form>
+                                <div>
+                                    <Input type="tel" label="MobileNo"name="mobileno" onChange={handleChange} value={data.mobileno}/>
+                                </div>
+                                <Button onClick={handleAdmin} color='brown'>Add Admin</Button>
+                            </form>
                             </TabPanel>
                             <TabPanel value="exist">
                                 <form onSubmit={handleAdmin} className='flex flex-col md:py-0 my-3 gap-6 sm:px-10 sm:mx-5 mx-10 px-0 w-96'>

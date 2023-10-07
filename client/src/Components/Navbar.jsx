@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import small from '../Images/navlogo.jpeg';
+import small from '../Images/logo1.png';
 import {TiThMenu} from 'react-icons/ti'
-import {FcAbout,FcHome, FcSearch} from 'react-icons/fc'
+import {FcSearch} from 'react-icons/fc'
 // import {BsSearchHeart} from 'react-icons/bs'
 import {Link as Route, useNavigate } from 'react-router-dom';
 import {Link} from 'react-scroll';
@@ -9,7 +9,7 @@ import {Link} from 'react-scroll';
 import {motion} from 'framer-motion';
 import {useDispatch, useSelector } from 'react-redux';
 import {logoutUser} from '../redux/authSlice';
-import { Badge, Avatar, Dialog, Button, IconButton } from "@material-tailwind/react";
+import { Badge, Avatar, Dialog, Button} from "@material-tailwind/react";
 import { FiLogOut } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 // import { BsChatTextFill } from "react-icons/bs";
@@ -48,13 +48,14 @@ function Navbar() {
                 <ul
                     className={`${
                     isMenuOpen ? 'visible' : 'hidden'
-                    } lg:hidden group-hover:visible absolute left-2 top-16 font-semibold z-50 flex flex-col gap-5  `}
+                    } lg:hidden group-hover:visible absolute left-0 p-2 top-14 font-semibold z-50 flex flex-col gap-3 w-full bg-white `}
                 >
-                    <li className='cursor-pointer'>{userInfo && userInfo.isAdmin && <li><Route to='/dashboard'><IconButton variant="gradient"color='white' className="rounded-full"><img src={dash}/></IconButton></Route></li>}</li>
-                    <li className='cursor-pointer '><Link smooth={true} duration={1000} to='#home'> <IconButton variant="gradient" color='white' className="rounded-full"><FcHome size={25}/></IconButton></Link></li>
-                    <li className='cursor-pointer'><Link smooth={true} duration={1000}  to='#about'><IconButton variant="gradient"color='white' className="rounded-full"><FcAbout size={25}/></IconButton></Link></li>
-                    <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#category'><IconButton variant="gradient"color='white' className="rounded-full"><img src={clu} /></IconButton></Link></li>
-                    <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#contact'><IconButton variant="gradient"color='white' className="rounded-full"><img src={tele}/></IconButton></Link></li>
+                    <li className='cursor-pointer'>{userInfo && userInfo.isAdmin && <li><Route to='/dashboard'>Dashboard</Route></li>}</li>
+                    <li className='cursor-pointer'>{userInfo && userInfo.category==="Coordinator" && <li><Route to='/placementresults'>Results</Route></li>}</li>
+                    <li className='cursor-pointer '><Link smooth={true} duration={1000} to='#home'>Home</Link></li>
+                    <li className='cursor-pointer'><Link smooth={true} duration={1000}  to='#about'>About</Link></li>
+                    <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#category'>Departments</Link></li>
+                    <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#contact'>Contact</Link></li>
                 </ul>
                 
             </div>
@@ -71,13 +72,13 @@ function Navbar() {
                 initial={{scale:0}}
                 whileInView={{scale:1}}
                 transition={{duration:0.7}}>
-            <ul className='flex gap-5  px-5 py-2 rounded-full items-center bg-slate-500 w-fit text-black'>
-                <li className='cursor-pointer '><Link smooth={true} duration={1000} to='#home'> <IconButton variant="gradient" color='white' className="rounded-full"><FcHome size={25}/></IconButton></Link></li>
-                <li className='cursor-pointer'><Link smooth={true} duration={1000}  to='#about'><IconButton variant="gradient"color='white' className="rounded-full"><FcAbout size={25}/></IconButton></Link></li>
-                <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#category'><IconButton variant="gradient"color='white' className="rounded-full"><img src={clu} /></IconButton></Link></li>
-                <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#contact'><IconButton variant="gradient"color='white' className="rounded-full"><img src={tele}/></IconButton></Link></li>
-                <li className='cursor-pointer'>{userInfo && userInfo.category==="Coordinator" && <li><Route to='/placementresults'><IconButton variant="gradient"color='white' className="rounded-full"><img src={dash}/></IconButton></Route></li>}</li>
-                <li className='cursor-pointer'>{userInfo && userInfo.isAdmin && <li><Route to='/dashboard'><IconButton variant="gradient"color='white' className="rounded-full"><img src={dash}/></IconButton></Route></li>}</li>
+            <ul className='flex gap-5  px-5 py-2 rounded-full items-center  w-fit text-green-300  shadow-green-300  shadow-inner'>
+                <li className='cursor-pointer '><Link smooth={true} duration={1000} to='#home'>Home</Link></li>
+                <li className='cursor-pointer'><Link smooth={true} duration={1000}  to='#about'>About</Link></li>
+                <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#category'>Departments</Link></li>
+                <li className='cursor-pointer'><Link smooth={true} duration={1000} to='#contact'>Contact</Link></li>
+                <li className='cursor-pointer'>{userInfo && userInfo.category==="Coordinator" && <li><Route to='/placementresults'>Results</Route></li>}</li>
+                <li className='cursor-pointer'>{userInfo && userInfo.isAdmin && <li><Route to='/dashboard'>Dashboard</Route></li>}</li>
             </ul>
             </motion.ul>
             <div className='flex items-center gap-2 border-b-2 border-blue-600'>
