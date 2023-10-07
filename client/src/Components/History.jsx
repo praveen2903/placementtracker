@@ -203,7 +203,7 @@ export default function Example() {
                               
                                 key={item.name}
                                 onClick={() =>
-                                  handleClick({ department : item.name })
+                                  handleClick({ Company : item.name })
                                 }
                                 className="active:bg-purple-100 -m-3 flex items-start rounded-lg p-4 hover:bg-gray-50 cursor-pointer"
                               >
