@@ -96,9 +96,9 @@ export const getRegisters=createAsyncThunk("api/getRegisters",async()=>{
             state.loading = false;
             toast.success("Register successfully");
           })
-          .addCase(addRegister.rejected, (state,{error}) => {
+          .addCase(addRegister.rejected, (state) => {
             state.loading = false;
-            toast.error(error.message);
+            toast.error("You already registered for this company");
           });
         builder
         .addCase(getRegisters.pending, (state) => {

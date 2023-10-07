@@ -57,7 +57,7 @@ if (loading) {
   return (
     <div>
       <Sidebar/>
-      <div className="pt-10 lg:pl-80 lg:mr-32">
+      <div className="pt-10 lg:pl-96 lg:mr-32">
         <Card className="h-full w-full">
           <CardHeader floated={false} shadow={false} className="rounded-none">
             <div className="mb-8 flex items-center justify-between gap-8 flex-col sm:flex-row">

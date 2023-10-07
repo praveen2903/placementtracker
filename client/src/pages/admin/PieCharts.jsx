@@ -1,11 +1,11 @@
-import { PieChart, Pie,Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie,Cell, ResponsiveContainer,Label } from 'recharts';
 
 function PieCharts() {
     const data = [
-        { name: 'Group A', value: 400 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
+        { name: 'CSE', value: 400 },
+        { name: 'ECE', value: 300 },
+        { name: 'MECH', value: 300 },
+        { name: 'CIVIL', value: 200 },
       ];
       
       const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -29,15 +29,16 @@ function PieCharts() {
         data={data}
         cx="50%"
         cy="50%"
-        labelLine={false}
+        labelLine={true}
         label={renderCustomizedLabel}
         outerRadius={120}
         fill="#8884d8"
         dataKey="value"
       >
         {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />
         ))}
+        
       </Pie>
     </PieChart>
   </ResponsiveContainer>

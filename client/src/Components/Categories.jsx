@@ -77,8 +77,8 @@ function Categories() {
     // <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay:0.1  }}>
       <div id='#category' className='bg-[#fff3e0] pb-20 pt-5 '>
           <div className='mb-10 mt-8 flex flex-col gap-2 items-center'>
-              <h1 className='font-bold text-4xl'>COMPANIES</h1>
-              <h3>Choose company</h3>
+              <h1 className='font-bold text-4xl'>Departments</h1>
+              <h3>Choose Department</h3>
           </div>
          <div className='mx-8'>
           <Slider {...settings}>

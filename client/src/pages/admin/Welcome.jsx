@@ -1,5 +1,5 @@
 import Sidebar from '../../Components/Sidebar'
-import { BsRocket, BsWindowSidebar } from 'react-icons/bs'
+import { BsRocket } from 'react-icons/bs'
 import PieCharts from './PieCharts';
 import BarCharts from './BarCharts';
 import { useDispatch, useSelector } from 'react-redux';

@@ -86,7 +86,7 @@ const eventRegistration=(expressAsyncHandler(async(req,res)=>{
         res.send(res1);
     }catch(err){
         console.log(err);
-        res.status(500).json({ error:err});
+        res.status(500).json({ error:"You Already Registerd for this company"});
     }
 }));
 const deleteUserregister=async(req,res)=>{

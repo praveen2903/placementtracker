@@ -2,6 +2,7 @@ import { Button,Card,CardHeader,CardBody,Typography} from '@material-tailwind/re
 import vvit from '../assets/bgmain.jpeg'
 import { useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
+import back from '../Images/back.jpeg';
 import {
     IconButton,
     SpeedDial,
@@ -76,9 +77,9 @@ function Brand() {
                         </Link>
                         </div>
                         <img 
-                        src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbSUyMGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                        src={back}
                         alt="image"
-                        className="w-1/2 rounded-lg h-full object-cover"
+                        className="w-1/2 rounded-lg  object-cover"
                         />
                     </div>
                 </div>
@@ -88,7 +89,7 @@ function Brand() {
               <input className='bg-transparent w-full outline-none text-white  ' placeholder='Company...' value={search} onChange={(e)=>setSearch(e.target.value.toUpperCase())}/>
               <FcSearch className='cursor-pointer' color='white' size={35} onClick={handleSearch}/>
             </div>
-            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-black relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10  bg-white lg:bg-transparent lg:backdrop-blur-md rounded-lg p-2'>
+            <span className='font-bold sm:text-2xl lg:text-3xl font-sans text-white relative bottom-44 lg:bottom-80 lg:left-96 xl:ml-24 h-fit px-10  bg-white lg:bg-transparent lg:backdrop-blur-md rounded-lg p-2'>
                   {/* Style will be inherited from the parent element */}
                   
                   <Typewriter

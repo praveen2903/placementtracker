@@ -71,13 +71,13 @@ function UserProfile() {
                               <img className='w-44 h-44 object-cover rounded-lg' src={item.image} alt='profile'/>
                             </div>
                             <div className='flex flex-col gap-2 items-center sm:items-start'>
-                                <h1><span className='font-bold'>UserName </span> {item.username}</h1>
+                                <h1><span className='font-bold'>UserName </span> {item.firstName}</h1>
                                 <h1><span className='font-bold'>Category</span> {item.category}</h1>
                                 <h1><span className='font-bold'>Email</span> {item.email}</h1>
                                 <h1><span className='font-bold'>Branch</span> {item.branch}</h1>
                                 <h1><span className='font-bold'>RollNo</span> {item.rollno}</h1>
                                 <h1><span className='font-bold'>Year</span> {item.year}</h1>
-                                <h1><span className='font-bold'>Section</span> {item.section}</h1>
+                                <h1><span className='font-bold'>mobile</span> {item.mobile}</h1>
                             </div>
                         </div>
                     ))}
@@ -86,7 +86,7 @@ function UserProfile() {
                             <h1><span className='font-bold'>Company Name</span> {item.club}</h1>
                             <h1><span className='font-bold'>Department</span> {item.event}</h1>
                             <h1><span className='font-bold'>Year</span> {item.year}</h1>
-                            <h1><span className='font-bold'>Section</span> {item.section}</h1>
+                            <h1><span className='font-bold'>Roll No</span> {item.roll}</h1>
                         </div>
                     ))}
                     {value==="msgs" && feedback && <div className='flex flex-wrap gap-10'>

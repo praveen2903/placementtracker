@@ -1,3 +1,9 @@
+import package1 from "./assets/packages1.jpg"
+import package2 from "./assets/package2.jpg"
+import package3 from "./assets/package3.jpg"
+import package4 from "./assets/package4.jpg"
+import package5 from "./assets/package5.jpg"
+import package6 from "./assets/package6.jpg"
 const data={
     menuItems:[
         {
@@ -25,39 +31,39 @@ const data={
     tutorials:[
       {
         id:"home",
-        url:"https://www.youtube.com/watch?v=Gzz_e0c36bQ&list=PLh8DUf2iN9woA8PenOxd-RwhfwCf9oQsX&index=2",
+        url:package1,
       },
       {
         id:"home",
-        url:"https://youtu.be/-PDTmdkJAv8?si=rt8mXJ4p49sn37vv",
+        url:package2,
       },
       {
         id:"home",
-        url:"https://youtu.be/vL332Q4FCNg?si=SlbS94fFLvSZtcXz",
+        url:package3,
       },
       {
         id:"CSE",
-        url:"https://youtu.be/-PDTmdkJAv8?si=rt8mXJ4p49sn37vv",
+        url:package4,
       },
       {
         id:"CSE",
-        url:"https://youtu.be/vL332Q4FCNg?si=SlbS94fFLvSZtcXz",
-      },
-      {
-        id:"CSE",
-        url:"https://youtu.be/cw6p3BL05Ng?si=a6BbNU_Hn35ckzut",
+        url:package5,
       },
       {
         id:"ECE",
-        url:"https://www.youtube.com/watch?v=sjXfClqA0Ls",
+        url:package6,
+      },
+      {
+        id:"ECE",
+        url:package6,
       },
       {
         id:"MECH",
-        url:"https://www.youtube.com/watch?v=r_Du8dVSFYQ",
+        url:package6,
       },
       {
         id:"MECH",
-        url:"https://www.youtube.com/watch?v=r_Du8dVSFYQ",
+        url:package6,
       },
     ]
 }
