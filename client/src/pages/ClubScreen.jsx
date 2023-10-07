@@ -265,7 +265,7 @@ function ClubScreen() {
         </Dialog>
         </Slider>}
        {userInfo &&  (userInfo.isAdmin || userInfo.category==="Coordinator") && <div>
-       <h1 className='font-bold  text-2xl sm:text-3xl pt-10 text-center text-brown-700'>Event Registrations</h1>
+       <h1 className='font-bold  text-2xl sm:text-3xl pt-10 text-center text-brown-700'>Company Registrations</h1>
         <div className='flex flex-col md:flex-row justify-between sm:mt-16 mt-10 mb-5 items-center gap-2 '>
             <div className=" flex items-center gap-3 md:mb-0 flex-wrap lg:mx-10 flex-col sm:flex-row ">
                   <div>
