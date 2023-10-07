@@ -35,6 +35,7 @@ export const getDocs=createAsyncThunk(
 export const addRegister = createAsyncThunk(
     "api/addRegister",
     async (payload) => {
+      console.log("payload",payload);
         const response = await axios.post(`${BASE_URL}/api/events/register`, payload, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -96,9 +97,9 @@ export const getRegisters=createAsyncThunk("api/getRegisters",async()=>{
             state.loading = false;
             toast.success("Register successfully");
           })
-          .addCase(addRegister.rejected, (state) => {
+          .addCase(addRegister.rejected, (state,{error}) => {
             state.loading = false;
-            toast.error("You already registered for this company");
+            toast.error(error.message);
           });
         builder
         .addCase(getRegisters.pending, (state) => {

@@ -59,12 +59,12 @@ const eventRegistration=(expressAsyncHandler(async(req,res)=>{
             // }
             const ev=await Event.findOne({eventname:event});
             const messageurl=ev.companyurl;
-            console.log("event",ev);
-            const gpa=await ev.cgpa;
+            const gpa=ev.cgpa;
             if(cgpa<gpa){
                 return res.json({error:true,message:"You don't have required cgpa for this job profile"});
             }
             const reg=await DepartmentRegister.findOne({roll:rollno,club:club});
+            console.log("reg",reg);
             if(!reg){
                 res.json({error:true,message:`You need to register for ${club} club`});
                 return;
@@ -86,7 +86,7 @@ const eventRegistration=(expressAsyncHandler(async(req,res)=>{
         res.send(res1);
     }catch(err){
         console.log(err);
-        res.status(500).json({ error:"You Already Registerd for this company"});
+        res.status(500).json({ error:err});
     }
 }));
 const deleteUserregister=async(req,res)=>{

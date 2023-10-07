@@ -13,7 +13,9 @@ function CompanyRegister({value,club,event}) {
     const handleGpa=(e)=>{
         setData({...data,cgpa:e.target.value})
     }
-    const handleRegister=async()=>{
+    const handleRegister=async(e)=>{
+      e.preventDefault();
+      console.log("register for company");
         if(userInfo){
             try{
                 const res1=await dispatch(addRegister({data}));
