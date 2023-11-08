@@ -14,9 +14,6 @@ import { FiLogOut } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 // import { BsChatTextFill } from "react-icons/bs";
 import Login from '../pages/Login';
-import clu from '../Images/dj.png'
-import tele from '../Images/telephone.png'
-import dash from '../Images/dashboard.png'
 function Navbar() {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen((cur) => !cur);

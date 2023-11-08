@@ -14,6 +14,7 @@ import {BsFillBuildingFill} from "react-icons/bs"
 import {BiSolidCarMechanic} from "react-icons/bi"
 import { ParamContext } from "../context/Context";
 import Home from "./PlaceTable";
+// import PlaceTable from "./PlaceTable";
 
 const departments = [
   {
@@ -39,7 +40,7 @@ const departments = [
 ];
 const companies=[
     {
-        name:"wipro",
+        name:"Wipro",
         icon:SiWipro,
     },
     {
@@ -70,6 +71,7 @@ export default function Example() {
         department: "",
         company: "",
         keyword: "",
+        year:"",
       });
     const handleClick = (reqParam) => {
         if (param.name) param.keyword = "";
@@ -82,29 +84,13 @@ export default function Example() {
 
   return (
     <div>
-      <Popover className="relative md:top-0 z-10 p-4 bg-[#c7d2fe] m-4">
+      <Popover className="relative md:top-0 z-10 p-1 bg-[#f8f8f9] m-4 rounded-lg shadow-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6"> 
           <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1 text-2xl font-bold text-black">
               Placement History
             </div>
-            <div className="hidden sm:flex ">
-              <input
-                value={searchVal}
-                onChange={(event) => {
-                  setSearch(event.target.value);
-                }}
-                placeholder="Keywords here"
-                className="text-base font-medium text-gray-900  hover:text-gray-700 py-1 px-2 border-2  "
-              />
-              <button
-                onClick={() => handleClick({ keyword: searchVal })}
-                className="active:bg-purple-800 text-base font-medium text-gray-900 rounded-md hover:text-white hover:bg-purple-600 mx-2 py-2 px-2 border-2"
-              >
-                search
-              </button>
-             
-            </div>
+            
             <div className="-my-2 -mr-2 md:hidden">
               <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 <span className="sr-only">Open menu</span>
@@ -118,10 +104,11 @@ export default function Example() {
                     <Popover.Button
                       className={classNames(
                         open ? "text-gray-900" : "text-gray-500",
-                        "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 p-1"
                       )}
                     >
-                      <span>Department</span>
+                      <span>department</span>
+                      <span className="p-1">{param.department}</span>
                       <ChevronDownIcon
                         className={classNames(
                           open ? "text-gray-600" : "text-gray-400",
@@ -148,7 +135,7 @@ export default function Example() {
                               
                                 key={item.name}
                                 onClick={() =>
-                                  handleClick({ department : item.name })
+                                  handleClick({department : item.name })
                                 }
                                 className="active:bg-purple-100 -m-3 flex items-start rounded-lg p-4 hover:bg-gray-50 cursor-pointer"
                               >
@@ -173,10 +160,11 @@ export default function Example() {
                     <Popover.Button
                       className={classNames(
                         open ? "text-gray-900" : "text-gray-500",
-                        "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 p-1"
                       )}
                     >
-                      <span>Company</span>
+                      <span>company  </span>
+                      <span className="p-1">{param.company}</span>
                       <ChevronDownIcon
                         className={classNames(
                           open ? "text-gray-600" : "text-gray-400",
@@ -203,7 +191,7 @@ export default function Example() {
                               
                                 key={item.name}
                                 onClick={() =>
-                                  handleClick({ Company : item.name })
+                                  handleClick({ company : item.name })
                                 }
                                 className="active:bg-purple-100 -m-3 flex items-start rounded-lg p-4 hover:bg-gray-50 cursor-pointer"
                               >
@@ -229,10 +217,11 @@ export default function Example() {
                     <Popover.Button
                       className={classNames(
                         open ? "text-gray-900" : "text-gray-500",
-                        "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 p-1"
                       )}
                     >
-                      <span>Year</span>
+                      <span>year</span>
+                      <span className="p-1">{param.year}</span>
                       <ChevronDownIcon
                         className={classNames(
                           open ? "text-gray-600" : "text-gray-400",
